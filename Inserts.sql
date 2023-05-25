@@ -51,6 +51,93 @@ GO
 INSERT INTO ds3.Zona(Nome,Trilha_Sonora)
 VALUES ('Untended Graves',null)
 
+--Save
+
+INSERT INTO ds3.Save(Horas,ID)
+VALUES (84,1)
+GO
+INSERT INTO ds3.Save(Horas,ID)
+VALUES (43,2)
+GO
+INSERT INTO ds3.Save(Horas,ID)
+VALUES (17,3)
+GO
+
+--Personagem_save
+
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('Aim_A_Cat',1704,41)
+GO
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('jm2$',1340,42)
+GO
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('xDemonation',934,43)
+GO
+
+--Jogador
+
+INSERT INTO ds3.Jogador(Personagem,Item_Discovery,Stamina,Classe,Equip_Load,Focus_Points,Nivel)
+VALUES (41,100,128,'Knight',70,60,85)
+GO
+INSERT INTO ds3.Jogador(Personagem,Item_Discovery,Stamina,Classe,Equip_Load,Focus_Points,Nivel)
+VALUES (42,97,118,'Warrior',58,58,43)
+GO
+INSERT INTO ds3.Jogador(Personagem,Item_Discovery,Stamina,Classe,Equip_Load,Focus_Points,Nivel)
+VALUES (43,93,102,'Thief',46,51,23)
+GO
+
+--Jogador_Atributos
+
+INSERT INTO ds3.Jogador_Atributos(Jogador,Atributos)
+VALUES (41,1)
+GO
+INSERT INTO ds3.Jogador_Atributos(Jogador,Atributos)
+VALUES (42,2)
+GO
+INSERT INTO ds3.Jogador_Atributos(Jogador,Atributos)
+VALUES (43,3)
+GO
+
+--Atributos
+
+INSERT INTO ds3.Atributos(ID,Designacao,Valor)
+VALUES (1,'Strength',40)
+GO
+INSERT INTO ds3.Atributos(ID,Designacao,Valor)
+VALUES (1,'Dexterity',42)
+GO
+INSERT INTO ds3.Atributos(ID,Designacao,Valor)
+VALUES (1,'Vitality',20)
+GO
+INSERT INTO ds3.Atributos(ID,Designacao,Valor)
+VALUES (1,'Vigor',30)
+GO
+INSERT INTO ds3.Atributos(ID,Designacao,Valor)
+VALUES (2,'Strength',32)
+GO
+INSERT INTO ds3.Atributos(ID,Designacao,Valor)
+VALUES (2,'Dexterity',23)
+GO
+INSERT INTO ds3.Atributos(ID,Designacao,Valor)
+VALUES (2,'Vitality',17)
+GO
+INSERT INTO ds3.Atributos(ID,Designacao,Valor)
+VALUES (2,'Vigor',25)
+GO
+INSERT INTO ds3.Atributos(ID,Designacao,Valor)
+VALUES (3,'Strength',15)
+GO
+INSERT INTO ds3.Atributos(ID,Designacao,Valor)
+VALUES (3,'Dexterity',10)
+GO
+INSERT INTO ds3.Atributos(ID,Designacao,Valor)
+VALUES (3,'Vitality',15)
+GO
+INSERT INTO ds3.Atributos(ID,Designacao,Valor)
+VALUES (3,'Vigor',22)
+GO
+
 --Personagens_Boss
 
 INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
@@ -130,7 +217,7 @@ INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
 VALUES ('Winged Knight',508,25)
 GO
 INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
-VALUES ('Sages Prentice',59,26)
+VALUES ('Sage''s Prentice',59,26)
 GO
 INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
 VALUES ('Silver Knight',300,27)
@@ -266,34 +353,30 @@ INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
 VALUES (null,'Lightning','Magic','Rapport',28)
 GO
 INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
-VALUES ('Soul of the Lords','Lightning','Fire','Poison',19)
+VALUES ('Titanite Scale','Fire','Slash','All Status Effects',29)
 GO
 INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
-VALUES ('Soul of the Lords','Lightning','Fire','Poison',19)
+VALUES (null,'Fire','Slash damage',null,30)
 GO
 INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
-VALUES ('Soul of the Lords','Lightning','Fire','Poison',19)
+VALUES (null,' Frost','Fire',null,30)
 GO
 INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
-VALUES ('Soul of the Lords','Lightning','Fire','Poison',19)
+VALUES ('Dark Set','Farron Greatsword','Dark','Poison',31)
 GO
 INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
-VALUES ('Soul of the Lords','Lightning','Fire','Poison',19)
+VALUES (null,'Bleed',null,'Poison',32)
 GO
 INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
-VALUES ('Soul of the Lords','Lightning','Fire','Poison',19)
+VALUES (null,'Strike','Frost','Poison',33)
 GO
 INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
-VALUES ('Soul of the Lords','Lightning','Fire','Poison',19)
+VALUES ('Ember','Fire','Dark','Poison',34)
 GO
 INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
-VALUES ('Soul of the Lords','Lightning','Fire','Poison',19)
+VALUES ('Pale Resin','Fire','Dark',null,35)
 GO
-INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
-VALUES ('Soul of the Lords','Lightning','Fire','Poison',19)
-GO
-INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
-VALUES ('Soul of the Lords','Lightning','Fire','Poison',19)
+
 --Adversario_NPC
 INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
 VALUES ('Greirat''s Ashes Bandit''s Knife',null,null,null,36)
@@ -372,6 +455,73 @@ GO
 INSERT INTO ds3.Boss(Trilha_Sonora,Dialogo,Adversario)
 VALUES ('Soul of Cinder',null,19)
 
+--Inimigo
+INSERT INTO ds3.Inimigo(Tipo,Adversario)
+VALUES ('Hollow',20)
+GO
+INSERT INTO ds3.Inimigo(Tipo,Adversario)
+VALUES (null,21)
+GO
+INSERT INTO ds3.Inimigo(Tipo,Adversario)
+VALUES ('Hollow',22)
+GO
+INSERT INTO ds3.Inimigo(Tipo,Adversario)
+VALUES (null,23)
+GO
+INSERT INTO ds3.Inimigo(Tipo,Adversario)
+VALUES ('Phanthom',24)
+GO
+INSERT INTO ds3.Inimigo(Tipo,Adversario)
+VALUES ('Hollow',25)
+GO
+INSERT INTO ds3.Inimigo(Tipo,Adversario)
+VALUES ('Hollow',26)
+GO
+INSERT INTO ds3.Inimigo(Tipo,Adversario)
+VALUES ('Knight',27)
+GO
+INSERT INTO ds3.Inimigo(Tipo,Adversario)
+VALUES ('Reptilian',28)
+GO
+INSERT INTO ds3.Inimigo(Tipo,Adversario)
+VALUES (null,29)
+GO
+INSERT INTO ds3.Inimigo(Tipo,Adversario)
+VALUES ('Undead',30)
+GO
+INSERT INTO ds3.Inimigo(Tipo,Adversario)
+VALUES ('Humanoid Undead',31)
+GO
+INSERT INTO ds3.Inimigo(Tipo,Adversario)
+VALUES ('Abyssal',32)
+GO
+INSERT INTO ds3.Inimigo(Tipo,Adversario)
+VALUES ('Abyss Creature',33)
+GO
+INSERT INTO ds3.Inimigo(Tipo,Adversario)
+VALUES ('Pyromancer',34)
+GO
+INSERT INTO ds3.Inimigo(Tipo,Adversario)
+VALUES ('Abyssal',35)
+GO
+
+--NPC
+INSERT INTO ds3.NPC(Dialogo,Adversario)
+VALUES ('Oh, hello, you''re back.  And in one piece. Well, now it''s time I do my part.  Whatever trinket you need, speak up.  Just don''t ask me where I got them',36)
+GO
+INSERT INTO ds3.NPC(Dialogo,Adversario)
+VALUES ('At the foot of Lothric Castle, an old path still runs below the tower in the Undead Settlement. It was used to transport sacrifices to the Cathedral of the Deep.  You should see where it leads. If you''ve the stones for it.',37)
+GO
+INSERT INTO ds3.NPC(Dialogo,Adversario)
+VALUES ('This lift only goes down, but you know...With a little warming up, eventually... No, no...I''ve got to use my head. And think. Hmm... Mmm...',38)
+GO
+INSERT INTO ds3.NPC(Dialogo,Adversario)
+VALUES ('Ohh… Ohh, then it''s true… A Champion of Ash, as I live and breathe. To be in your presence is a great honour. I am Yoel of Londor, a pilgrim as you can see, only…Somehow, I''ve failed to die as was ordained. Well, perhaps my calling lies elsewhere. Say, Champion of Ash, how does the idea of taking me into your service strike you? I was once a sorcerer. Surely I can be of use.',39)
+GO
+INSERT INTO ds3.NPC(Dialogo,Adversario)
+VALUES ('Ah-hah, taken an interest in her, have you? Well she''s a lost cause. Couldn''t even become a Fire Keeper. After I brought her all this way, and got her all ready. She''s beyond repair, I tell you.',40)
+GO
+j0aaa
 --Itens
 
 --(Armas)
@@ -499,7 +649,7 @@ GO
 INSERT INTO ds3.Item(Nome,Tipo,ID)
 VALUES ('Northern Armor Leggings','Leggings',40)
 GO
-
+dada
 --(Consum�veis)
 
 INSERT INTO ds3.Item(Nome,Tipo,ID)
@@ -874,3 +1024,788 @@ GO
 INSERT INTO ds3.Item_Nao_Equipavel(Quantidade,Item)
 VALUES (16,60)
 GO
+
+--Localizacao Save
+
+
+
+--Localizacao Itens
+
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (1,'High Wall of Lothric','51,622,111')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (2,'Firelink Shrine','827,127,679')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (3,'Profaned Capital','248,487,754')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (4,'Consumed Kings Garden','204,648,379')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (5,'Untended Graves','491,246,190')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (6,'Road of Sacrifices','668,803,974')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (7,'Irithyll of the Boreal Valley','156,680,768')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (8,'Kiln of the First Flame','189,636,126')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (9,'High Wall of Lothric','675,178,967')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (10,'Cemetery of Ash','170,16,388')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (11,'Anor Londo','47,668,78')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (12,'Undead Settlement','21,868,336')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (13,'Kiln of the First Flame','544,950,278')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (14,'Anor Londo','240,139,462')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (15,'Untended Graves','393,858,171')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (16,'Firelink Shrine','497,211,718')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (17,'Profaned Capital','910,68,999')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (18,'Archdragon Peak','438,687,410')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (19,'Cemetery of Ash','153,671,244')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (20,'Undead Settlement','237,26,745')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (21,'Profaned Capital','812,796,372')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (22,'Irithyll of the Boreal Valley','39,665,947')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (23,'Undead Settlement','354,73,454')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (24,'Anor Londo','367,222,145')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (25,'Anor Londo','942,870,671')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (26,'Undead Settlement','702,636,806')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (27,'Irithyll Dungeon','352,521,643')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (28,'Archdragon Peak','723,130,172')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (29,'Church of Yorshka','903,932,25')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (30,'Profaned Capital','507,209,815')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (31,'Undead Settlement','829,811,730')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (32,'Archdragon Peak','715,317,845')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (33,'Undead Settlement','671,62,621')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (34,'Archdragon Peak','257,994,331')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (35,'Catacombs of Carthus','180,84,966')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (36,'Cemetery of Ash','269,798,700')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (37,'Catacombs of Carthus','829,771,553')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (38,'Untended Graves','493,53,916')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (39,'High Wall of Lothric','561,579,382')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (40,'Irithyll of the Boreal Valley','318,172,329')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (41,'Cemetery of Ash','414,568,799')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (42,'Undead Settlement','705,21,553')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (43,'Undead Settlement','48,390,111')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (44,'Firelink Shrine','560,770,556')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (45,'Untended Graves','953,921,254')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (46,'Kiln of the First Flame','354,259,595')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (47,'Irithyll Dungeon','383,988,29')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (48,'Kiln of the First Flame','895,753,195')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (49,'Church of Yorshka','356,196,730')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (50,'Irithyll of the Boreal Valley','865,415,400')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (51,'Irithyll of the Boreal Valley','765,609,85')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (52,'Church of Yorshka','569,170,398')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (53,'Profaned Capital','508,297,751')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (54,'High Wall of Lothric','286,590,427')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (55,'Untended Graves','519,16,732')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (56,'Church of Yorshka','209,268,259')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (57,'High Wall of Lothric','115,721,916')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (58,'Irithyll of the Boreal Valley','980,151,25')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (59,'Consumed Kings Garden','334,223,693')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (60,'Profaned Capital','811,239,0')
+GO
+
+--Localizacao Itens Repetidas
+
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (14,'Catacombs of Carthus','877,425,433')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (1,'Archdragon Peak','716,771,34')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (36,'Farron Keep','219,157,819')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (29,'Anor Londo','544,948,352')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (12,'Archdragon Peak','268,826,628')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (52,'Catacombs of Carthus','763,485,272')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (54,'Firelink Shrine','592,672,66')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (22,'Untended Graves','882,245,606')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (20,'Irithyll of the Boreal Valley','325,842,105')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (16,'Archdragon Peak','981,290,815')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (15,'Road of Sacrifices','175,395,830')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (7,'Undead Settlement','809,767,177')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (35,'Kiln of the First Flame','471,534,660')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (46,'Kiln of the First Flame','890,275,751')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (45,'Firelink Shrine','367,831,329')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (17,'Undead Settlement','628,76,402')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (49,'Undead Settlement','293,602,567')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (51,'Cemetery of Ash','514,509,812')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (31,'Kiln of the First Flame','322,848,750')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (3,'Catacombs of Carthus','895,342,2')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (5,'High Wall of Lothric','173,601,71')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (28,'Untended Graves','333,592,701')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (56,'Firelink Shrine','576,973,404')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (8,'Profaned Capital','586,249,545')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (38,'Road of Sacrifices','49,240,835')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (34,'Road of Sacrifices','891,785,395')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (60,'Firelink Shrine','394,341,756')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (53,'Irithyll of the Boreal Valley','707,941,264')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (55,'Farron Keep','56,555,991')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (49,'Profaned Capital','626,187,739')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (1,'Road of Sacrifices','410,700,814')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (23,'Cemetery of Ash','450,391,720')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (39,'Undead Settlement','365,89,105')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (26,'Undead Settlement','639,608,865')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (31,'Firelink Shrine','886,48,877')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (44,'Consumed Kings Garden','689,134,790')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (41,'Profaned Capital','417,276,741')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (25,'Irithyll of the Boreal Valley','307,95,931')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (21,'Undead Settlement','540,983,760')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (41,'Untended Graves','478,595,362')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (50,'Archdragon Peak','834,853,9')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (44,'Profaned Capital','382,501,334')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (60,'Archdragon Peak','186,469,365')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (21,'Undead Settlement','820,412,584')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (13,'Catacombs of Carthus','872,341,716')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (10,'Farron Keep','607,305,280')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (42,'Archdragon Peak','337,377,377')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (41,'Irithyll Dungeon','556,514,720')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (21,'Profaned Capital','102,902,262')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (44,'Kiln of the First Flame','664,638,137')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (44,'Farron Keep','913,347,74')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (50,'Irithyll Dungeon','763,964,996')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (9,'Firelink Shrine','626,489,995')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (46,'Undead Settlement','152,218,468')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (58,'Irithyll Dungeon','177,3,190')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (56,'Undead Settlement','722,368,25')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (28,'Farron Keep','399,702,876')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (19,'Archdragon Peak','75,575,135')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (12,'Cemetery of Ash','202,31,491')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (31,'Profaned Capital','387,640,5')
+GO
+
+--locacalização inimigo
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (null,'Anor Londo','844,605,713')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (null,'Catacombs of Carthus','809,845,704')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (null,'Cemetery of Ash','648,241,166')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (null,'Firelink Shrine','11,12,69')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (null,'Irithyll of the Boreal Valley','941,54,276')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (null,'High Wall of Lothric','799,174,477')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (null,'Undead Settlement','951,396,688')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (null,'Road of Sacrifices','180,845,224')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (null,'Archdragon Peak','313,869,619')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (null,'Church of Yorshka','444,307,204')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (null,'Consumed Kings Garden','427,432,399')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (null,'Farron Keep','736,102,357')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (null,'Irithyll Dungeon','855,94,355')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (null,'Kiln of the First Flame','775,400,790')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (null,'Profaned Capital','104,301,308')
+GO
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (null,'Untended Graves','435,490,542')
+GO
+
+--Localizacao_Advers�rio insert
+
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (29'736,102,357')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (10'799,174,477')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (32'951,396,688180,845,224')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (9'648,241,166')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (18'844,605,713')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (35'799,174,477')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (33'648,241,166')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (37'775,400,790')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (9'809,845,704')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (37'809,845,704')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (33'799,174,477')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (9'855,94,355')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (12'809,845,704')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (7'951,396,688180,845,224')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (2'435,490,542')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (40'941,54,276')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (2'427,432,399')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (22'444,307,204')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (6'11,12,69')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (36'11,12,69')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (38'736,102,357')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (26'444,307,204')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (30'844,605,713')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (36'855,94,355')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (14'427,432,399')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (1'444,307,204')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (5'736,102,357')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (10'736,102,357')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (32'11,12,69')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (11'736,102,357')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (34'855,94,355')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (11'844,605,713')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (23'313,869,619')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (36'736,102,357')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (15'444,307,204')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (37'11,12,69')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (40'427,432,399')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (40'736,102,357')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (35'844,605,713')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (40'844,605,713')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (24'855,94,355')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (23'444,307,204')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (9'736,102,357')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (11'775,400,790')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (1'736,102,357')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (34'844,605,713')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (7'799,174,477')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (20'844,605,713')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (32'427,432,399')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (32'844,605,713')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (38'775,400,790')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (36'736,102,357')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (36'855,94,355')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (26'799,174,477')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (31'648,241,166')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (18'427,432,399')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (12'427,432,399')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (25'313,869,619')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (31'799,174,477')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (14'313,869,619')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (30'855,94,355')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (25'11,12,69')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (31'809,845,704')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (11'855,94,355')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (32'951,396,688180,845,224')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (3'435,490,542')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (11'11,12,69')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (29'313,869,619')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (38'775,400,790')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (25'951,396,688180,845,224')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (29'435,490,542')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (38'844,605,713')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (14'11,12,69')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (7'855,94,355')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (12'736,102,357')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (11'313,869,619')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (40'444,307,204')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (39'844,605,713')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (19'799,174,477')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (18'444,307,204')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (25'444,307,204')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (4'736,102,357')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (7'444,307,204')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (32'809,845,704')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (35'844,605,713')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (28'941,54,276')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (17'941,54,276')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (27'435,490,542')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (14'855,94,355')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (38'799,174,477')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (33'435,490,542')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (13'313,869,619')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (20'951,396,688180,845,224')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (20'11,12,69')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (37'104,301,308')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (40'775,400,790')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (18'799,174,477')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (39'736,102,357')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (26'809,845,704')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (25'775,400,790')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (7'941,54,276')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (1'427,432,399')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (18'427,432,399')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (24'941,54,276')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (32'809,845,704')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (21'736,102,357')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (16'844,605,713')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (18'648,241,166')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (19'799,174,477')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (15'799,174,477')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (30'775,400,790')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (35'11,12,69')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (24'444,307,204')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (13'648,241,166')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (5'941,54,276')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (24'444,307,204')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (17'941,54,276')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (7'444,307,204')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (8'855,94,355')
+GO
+INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
+VALUES (7'427,432,399')
+GO
+
+
