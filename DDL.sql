@@ -13,7 +13,7 @@ Zona varchar(20),
 Coordenadas varchar(20) NOT NULL PRIMARY KEY
 );
 GO
-CREATE TABLE ds3.Localizacao_Adversário(
+CREATE TABLE ds3.Localizacao_Adversï¿½rio(
 Adversario int,
 Localizacao varchar(20),
 PRIMARY KEY(Adversario,Localizacao)
@@ -69,8 +69,7 @@ Adversario int PRIMARY KEY
 GO
 CREATE TABLE ds3.NPC(
 Dialogo text,
-Adversario int PRIMARY KEY,
-Quest int
+Adversario int PRIMARY KEY
 );
 GO
 CREATE TABLE ds3.Quest(
@@ -124,9 +123,9 @@ alter table ds3.Localizacao add constraint fk_localizacao_Item foreign key (Item
 GO
 alter table ds3.Localizacao add constraint fk_localizacao_Zona foreign key (Zona) references  ds3.Zona (Nome);
 GO
-alter table ds3.Localizacao_Adversário add constraint fk_localizacao_adversario_localizacao foreign key (Localizacao) references  ds3.Localizacao (Coordenadas);
+alter table ds3.Localizacao_Adversï¿½rio add constraint fk_localizacao_adversario_localizacao foreign key (Localizacao) references  ds3.Localizacao (Coordenadas);
 GO
-alter table ds3.Localizacao_Adversário add constraint fk_localizacao_adversario_adversario foreign key (Adversario) references  ds3.Adversario (Personagem);
+alter table ds3.Localizacao_Adversï¿½rio add constraint fk_localizacao_adversario_adversario foreign key (Adversario) references  ds3.Adversario (Personagem);
 GO
 alter table ds3.Saves add constraint fk_Saves_Ultima_localizacao foreign key (Ultima_localizacao) references  ds3.Localizacao (Coordenadas);
 GO
@@ -167,9 +166,9 @@ alter table ds3.Localizacao drop constraint fk_localizacao_Item;
 GO
 alter table ds3.Localizacao drop constraint fk_localizacao_Zona;
 GO
-alter table ds3.Localizacao_Adversário drop constraint fk_localizacao_adversario_localizacao;
+alter table ds3.Localizacao_Adversï¿½rio drop constraint fk_localizacao_adversario_localizacao;
 GO
-alter table ds3.Localizacao_Adversário drop constraint fk_localizacao_adversario_adversario;
+alter table ds3.Localizacao_Adversï¿½rio drop constraint fk_localizacao_adversario_adversario;
 GO
 alter table ds3.Saves drop constraint fk_Saves_Ultima_localizacao;
 GO
@@ -208,7 +207,7 @@ DROP TABLE ds3.Zona;
 GO
 DROP TABLE ds3.Localizacao;
 GO
-DROP TABLE ds3.Localizacao_Adversário;
+DROP TABLE ds3.Localizacao_Adversï¿½rio;
 GO
 DROP TABLE ds3.Saves;
 GO

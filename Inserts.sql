@@ -110,6 +110,7 @@ GO
 INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
 VALUES ('Soul of Cinder',10766,19)
 --Personagens_inimigo
+
 INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
 VALUES ('Grave Warden',59,20)
 GO
@@ -157,9 +158,25 @@ VALUES ('Pus of Man',841,34)
 GO
 INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
 VALUES ('Locust Preacher',500,35)
+--Personagem_NPC
+
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('Greirat of the Undead Settlement',1000,36)
+GO
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('Hawkwood',2300,37)
+GO
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('Siegward of Catarina',1700,38)
+GO
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('Yoel of Londor',1900,39)
+GO
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('Eygon of Carim',2100,40)
 
 
---Adversários
+--Adversï¿½rios_Boss
 
 GO
 INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
@@ -218,6 +235,82 @@ VALUES ('Soul of the Nameless King','Fire','Lightning','Poison',18)
 GO
 INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
 VALUES ('Soul of the Lords','Lightning','Fire','Poison',19)
+
+--Adversario_inimigo
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES ('Fading Soul','Hollowslayer Greatsword',null,null,20)
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES ('Various Ores','Fire','Magic','All Status Effects',21)
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES (null,'Fire',null,null,22)
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES ('Various','Dark','Slash',null,23)
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES ('Black Iron Great shield',null,null,null,24)
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES ('Winged Knight Twinaxes','Frostbite','Poison',null,25)
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES ('fading soul','Hollowslayer Greatsword','Magic',null,26)
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES (null,'Thrust','Bleed','Rapport',27)
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES (null,'Lightning','Magic','Rapport',28)
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES ('Soul of the Lords','Lightning','Fire','Poison',19)
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES ('Soul of the Lords','Lightning','Fire','Poison',19)
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES ('Soul of the Lords','Lightning','Fire','Poison',19)
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES ('Soul of the Lords','Lightning','Fire','Poison',19)
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES ('Soul of the Lords','Lightning','Fire','Poison',19)
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES ('Soul of the Lords','Lightning','Fire','Poison',19)
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES ('Soul of the Lords','Lightning','Fire','Poison',19)
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES ('Soul of the Lords','Lightning','Fire','Poison',19)
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES ('Soul of the Lords','Lightning','Fire','Poison',19)
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES ('Soul of the Lords','Lightning','Fire','Poison',19)
+--Adversario_NPC
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES ('Greirat''s Ashes Bandit''s Knife',null,null,null,36)
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES ('Farron Ring',null,null,null,37)
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES ('Catarina Set',null,null,null,38)
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES ('Hollow''s Ashes',null,null,null,39)
+GO
+INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
+VALUES ('Morne''s Great Hammer',null,null,null,40)
+GO
+
 
 --Bosses
 
@@ -407,7 +500,7 @@ INSERT INTO ds3.Item(Nome,Tipo,ID)
 VALUES ('Northern Armor Leggings','Leggings',40)
 GO
 
---(Consumíveis)
+--(Consumï¿½veis)
 
 INSERT INTO ds3.Item(Nome,Tipo,ID)
 VALUES ('Divine Blessing','Consumable',41)
@@ -470,7 +563,7 @@ INSERT INTO ds3.Item(Nome,Tipo,ID)
 VALUES ('Pale Pine Resin','Consumable',60)
 GO
 
---Item Equipável
+--Item Equipï¿½vel
 
 INSERT INTO ds3.Item_Equipavel(Peso,Durabilidade,Item)
 VALUES (2.5,50,1)
@@ -719,7 +812,7 @@ INSERT INTO ds3.Armadura(Defesa,Item_Equipavel)
 VALUES (6.1,40)
 GO
 
---Item Não Equipável
+--Item Nï¿½o Equipï¿½vel
 
 INSERT INTO ds3.Item_Nao_Equipavel(Quantidade,Item)
 VALUES (10,41)
