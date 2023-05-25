@@ -51,7 +51,7 @@ GO
 INSERT INTO ds3.Zona(Nome,Trilha_Sonora)
 VALUES ('Untended Graves',null)
 
---Personagens
+--Personagens_Boss
 
 INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
 VALUES ('Iudex Gundyr',1037,1)
@@ -109,6 +109,55 @@ VALUES ('Nameless King',11677,18)
 GO
 INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
 VALUES ('Soul of Cinder',10766,19)
+--Personagens_inimigo
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('Grave Warden',59,20)
+GO
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('Crystal Lizard',63,21)
+GO
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('Starved Hound',110,22)
+GO
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('Mimic',458,23)
+GO
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('Knight Slayer Tsorig',1000,24)
+GO
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('Winged Knight',508,25)
+GO
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('Sages Prentice',59,26)
+GO
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('Silver Knight',300,27)
+GO
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('Man-Serpent Summoner',278,28)
+GO
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('Ravenous Crystal Lizard',1200,29)
+GO
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('Caged Hollow',229,30)
+GO
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('Millwood Knight',830,31)
+GO
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('Monstrosity of Sin',521,33)
+GO
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('Desert Pyromancer Zoey',1100,33)
+GO
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('Pus of Man',841,34)
+GO
+INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
+VALUES ('Locust Preacher',500,35)
+
 
 --Adversários
 
