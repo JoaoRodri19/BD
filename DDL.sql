@@ -1,4 +1,5 @@
 --CREATE DATABASE
+select * from ds3.Saves
 EXEC sp_MSforeachtable 'DROP TABLE ?';
 
 --CREATE TABLES

@@ -60,7 +60,12 @@ namespace Ds3
             if (!verifySGBDConnection())
                 return;
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM ds3.Saves", cn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM ds3.Bosses " +
+                "JOIN ds3.Adversario on Bosses.Adversario = Adversario.Personagem" +
+                "JOIN Personagem on Persongem" +
+                "JOIN Localizacao_Adversario on Adversario.Personagem = Localizacao_Adversario.Persongem" +
+                "JOIN Localizacao.coordenadas =  Localizacao_Adversario.coordenada" +
+                "JOIN Zona on Zona.Nome = Localizacao.Zona ", cn);
             SqlDataReader reader = cmd.ExecuteReader();
             listBox1.Items.Clear();
 

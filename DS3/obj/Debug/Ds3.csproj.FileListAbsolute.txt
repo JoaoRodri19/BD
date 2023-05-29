@@ -8,3 +8,15 @@ C:\Users\João Mourão\Desktop\GitHub\BD\DS3\bin\Debug\Ds3.exe
 C:\Users\João Mourão\Desktop\GitHub\BD\DS3\bin\Debug\Ds3.pdb
 C:\Users\João Mourão\Desktop\GitHub\BD\DS3\obj\Debug\Ds3.exe
 C:\Users\João Mourão\Desktop\GitHub\BD\DS3\obj\Debug\Ds3.pdb
+C:\Users\João Rodrigues\OneDrive\Ambiente de Trabalho\guiao2BD\BD\Ds3\bin\Debug\Ds3.exe.config
+C:\Users\João Rodrigues\OneDrive\Ambiente de Trabalho\guiao2BD\BD\Ds3\bin\Debug\Ds3.exe
+C:\Users\João Rodrigues\OneDrive\Ambiente de Trabalho\guiao2BD\BD\Ds3\bin\Debug\Ds3.pdb
+C:\Users\João Rodrigues\OneDrive\Ambiente de Trabalho\guiao2BD\BD\Ds3\obj\Debug\Ds3.csproj.AssemblyReference.cache
+C:\Users\João Rodrigues\OneDrive\Ambiente de Trabalho\guiao2BD\BD\Ds3\obj\Debug\Ds3.csproj.SuggestedBindingRedirects.cache
+C:\Users\João Rodrigues\OneDrive\Ambiente de Trabalho\guiao2BD\BD\Ds3\obj\Debug\Ds3.Properties.Resources.resources
+C:\Users\João Rodrigues\OneDrive\Ambiente de Trabalho\guiao2BD\BD\Ds3\obj\Debug\Ds3.csproj.GenerateResource.cache
+C:\Users\João Rodrigues\OneDrive\Ambiente de Trabalho\guiao2BD\BD\Ds3\obj\Debug\Ds3.csproj.CoreCompileInputs.cache
+C:\Users\João Rodrigues\OneDrive\Ambiente de Trabalho\guiao2BD\BD\Ds3\obj\Debug\Ds3.exe
+C:\Users\João Rodrigues\OneDrive\Ambiente de Trabalho\guiao2BD\BD\Ds3\obj\Debug\Ds3.pdb
+C:\Users\João Rodrigues\OneDrive\Ambiente de Trabalho\guiao2BD\BD\Ds3\obj\Debug\Ds3.Form1.resources
+C:\Users\João Rodrigues\OneDrive\Ambiente de Trabalho\guiao2BD\BD\Ds3\obj\Debug\Ds3.Form2.resources
