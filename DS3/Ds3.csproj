@@ -46,12 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs" />
+    <Compile Include="classes\Adversario.cs" />
+    <Compile Include="classes\Arma.cs" />
+    <Compile Include="classes\Armadura.cs" />
+    <Compile Include="classes\Atributos.cs" />
+    <Compile Include="classes\Boss.cs" />
+    <Compile Include="classes\Inimigo.cs" />
+    <Compile Include="classes\Item.cs" />
+    <Compile Include="classes\Item_Equipavel.cs" />
+    <Compile Include="classes\Item_Nao_Equipavel.cs" />
+    <Compile Include="classes\Item_Personagem.cs" />
+    <Compile Include="classes\Jogador.cs" />
+    <Compile Include="classes\Jogador_Atributos.cs" />
+    <Compile Include="classes\Localizacao.cs" />
+    <Compile Include="classes\Localizacao_Adversario.cs" />
+    <Compile Include="classes\NPC.cs" />
+    <Compile Include="classes\Personagem.cs" />
+    <Compile Include="classes\Quest.cs" />
+    <Compile Include="classes\Saves.cs" />
+    <Compile Include="classes\Zona.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="obj\Debug\Ds3.Properties.Resources.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -61,6 +84,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\Ds3.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\Ds3.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\Ds3.csproj.GenerateResource.cache" />
+    <None Include="obj\Debug\Ds3.csproj.SuggestedBindingRedirects.cache" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -73,6 +102,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="obj\Debug\Ds3.csproj.FileListAbsolute.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+    <Folder Include="DS3\bin\Release\" />
+    <Folder Include="DS3\obj\Debug\TempPE\" />
+    <Folder Include="DS3\obj\x86\Release\" />
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
