@@ -51,16 +51,16 @@ GO
 INSERT INTO ds3.Zona(Nome,Trilha_Sonora)
 VALUES ('Untended Graves',null)
 
---Save
+--Saves
 
-INSERT INTO ds3.Save(Horas,ID)
-VALUES (84,1)
+INSERT INTO ds3.Saves(Horas,ID)
+VALUES (DATEADD(HOUR, 83, CAST('00:00:00' AS TIME)),1)
 GO
-INSERT INTO ds3.Save(Horas,ID)
-VALUES (43,2)
+INSERT INTO ds3.Saves(Horas,ID)
+VALUES (DATEADD(HOUR, 43, CAST('00:00:00' AS TIME)),2)
 GO
-INSERT INTO ds3.Save(Horas,ID)
-VALUES (17,3)
+INSERT INTO ds3.Saves(Horas,ID)
+VALUES (DATEADD(HOUR, 17, CAST('00:00:00' AS TIME)),3)
 GO
 
 --Personagem_save
@@ -87,55 +87,71 @@ INSERT INTO ds3.Jogador(Personagem,Item_Discovery,Stamina,Classe,Equip_Load,Focu
 VALUES (43,93,102,'Thief',46,51,23)
 GO
 
---Jogador_Atributos
-
-INSERT INTO ds3.Jogador_Atributos(Jogador,Atributos)
-VALUES (41,1)
-GO
-INSERT INTO ds3.Jogador_Atributos(Jogador,Atributos)
-VALUES (42,2)
-GO
-INSERT INTO ds3.Jogador_Atributos(Jogador,Atributos)
-VALUES (43,3)
-GO
-
 --Atributos
 
 INSERT INTO ds3.Atributos(ID,Designacao,Valor)
 VALUES (1,'Strength',40)
 GO
 INSERT INTO ds3.Atributos(ID,Designacao,Valor)
-VALUES (1,'Dexterity',42)
+VALUES (2,'Dexterity',42)
 GO
 INSERT INTO ds3.Atributos(ID,Designacao,Valor)
-VALUES (1,'Vitality',20)
+VALUES (3,'Vitality',20)
 GO
 INSERT INTO ds3.Atributos(ID,Designacao,Valor)
-VALUES (1,'Vigor',30)
+VALUES (4,'Vigor',30)
 GO
 INSERT INTO ds3.Atributos(ID,Designacao,Valor)
-VALUES (2,'Strength',32)
+VALUES (5,'Strength',32)
 GO
 INSERT INTO ds3.Atributos(ID,Designacao,Valor)
-VALUES (2,'Dexterity',23)
+VALUES (6,'Dexterity',23)
 GO
 INSERT INTO ds3.Atributos(ID,Designacao,Valor)
-VALUES (2,'Vitality',17)
+VALUES (7,'Vitality',17)
 GO
 INSERT INTO ds3.Atributos(ID,Designacao,Valor)
-VALUES (2,'Vigor',25)
+VALUES (8,'Vigor',25)
 GO
-INSERT INTO ds3.Atributos(ID,Designacao,Valor)
-VALUES (3,'Strength',15)
+
+
+--Jogador_Atributos
+
+INSERT INTO ds3.Jogador_Atributos(Jogador,Atributos)
+VALUES (41,1)
 GO
-INSERT INTO ds3.Atributos(ID,Designacao,Valor)
-VALUES (3,'Dexterity',10)
+INSERT INTO ds3.Jogador_Atributos(Jogador,Atributos)
+VALUES (41,2)
 GO
-INSERT INTO ds3.Atributos(ID,Designacao,Valor)
-VALUES (3,'Vitality',15)
+INSERT INTO ds3.Jogador_Atributos(Jogador,Atributos)
+VALUES (41,3)
 GO
-INSERT INTO ds3.Atributos(ID,Designacao,Valor)
-VALUES (3,'Vigor',22)
+INSERT INTO ds3.Jogador_Atributos(Jogador,Atributos)
+VALUES (41,4)
+GO
+INSERT INTO ds3.Jogador_Atributos(Jogador,Atributos)
+VALUES (42,1)
+GO
+INSERT INTO ds3.Jogador_Atributos(Jogador,Atributos)
+VALUES (42,6)
+GO
+INSERT INTO ds3.Jogador_Atributos(Jogador,Atributos)
+VALUES (42,3)
+GO
+INSERT INTO ds3.Jogador_Atributos(Jogador,Atributos)
+VALUES (42,8)
+GO
+INSERT INTO ds3.Jogador_Atributos(Jogador,Atributos)
+VALUES (43,5)
+GO
+INSERT INTO ds3.Jogador_Atributos(Jogador,Atributos)
+VALUES (43,2)
+GO
+INSERT INTO ds3.Jogador_Atributos(Jogador,Atributos)
+VALUES (43,3)
+GO
+INSERT INTO ds3.Jogador_Atributos(Jogador,Atributos)
+VALUES (43,8)
 GO
 
 --Personagens_Boss
@@ -235,7 +251,7 @@ INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
 VALUES ('Millwood Knight',830,31)
 GO
 INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
-VALUES ('Monstrosity of Sin',521,33)
+VALUES ('Monstrosity of Sin',521,32)
 GO
 INSERT INTO ds3.Personagem(Nome,Pontos_De_Vida,ID)
 VALUES ('Desert Pyromancer Zoey',1100,33)
@@ -357,9 +373,6 @@ VALUES ('Titanite Scale','Fire','Slash','All Status Effects',29)
 GO
 INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
 VALUES (null,'Fire','Slash damage',null,30)
-GO
-INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
-VALUES (null,' Frost','Fire',null,30)
 GO
 INSERT INTO ds3.Adversario(Drops,Fraqueza,Resistencia,Imunidade,Personagem)
 VALUES ('Dark Set','Farron Greatsword','Dark','Poison',31)
@@ -521,7 +534,7 @@ GO
 INSERT INTO ds3.NPC(Dialogo,Adversario)
 VALUES ('Ah-hah, taken an interest in her, have you? Well she''s a lost cause. Couldn''t even become a Fire Keeper. After I brought her all this way, and got her all ready. She''s beyond repair, I tell you.',40)
 GO
-j0aaa
+
 --Itens
 
 --(Armas)
@@ -649,7 +662,7 @@ GO
 INSERT INTO ds3.Item(Nome,Tipo,ID)
 VALUES ('Northern Armor Leggings','Leggings',40)
 GO
-dada
+
 --(Consum�veis)
 
 INSERT INTO ds3.Item(Nome,Tipo,ID)
@@ -1025,7 +1038,7 @@ INSERT INTO ds3.Item_Nao_Equipavel(Quantidade,Item)
 VALUES (16,60)
 GO
 
---Localizacao Save
+--Localizacao Saves
 
 
 
@@ -1448,364 +1461,362 @@ GO
 --Localizacao_Advers�rio insert
 
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (29'736,102,357')
+VALUES (38,'844,605,713')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (10'799,174,477')
+VALUES (34,'648,241,166')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (32'951,396,688180,845,224')
+VALUES (16,'844,605,713')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (9'648,241,166')
+VALUES (6,'809,845,704')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (18'844,605,713')
+VALUES (34,'435,490,542')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (35'799,174,477')
+VALUES (28,'444,307,204')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (33'648,241,166')
+VALUES (30,'435,490,542')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (37'775,400,790')
+VALUES (32,'444,307,204')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (9'809,845,704')
+VALUES (9,'736,102,357')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (37'809,845,704')
+VALUES (31,'648,241,166')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (33'799,174,477')
+VALUES (31,'844,605,713')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (9'855,94,355')
+VALUES (16,'951,396,688')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (12'809,845,704')
+VALUES (11,'435,490,542')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (7'951,396,688180,845,224')
+VALUES (3,'855,94,355')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (2'435,490,542')
+VALUES (3,'941,54,276')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (40'941,54,276')
+VALUES (23,'736,102,357')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (2'427,432,399')
+VALUES (8,'799,174,477')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (22'444,307,204')
+VALUES (2,'736,102,357')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (6'11,12,69')
+VALUES (5,'809,845,704')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (36'11,12,69')
+VALUES (18,'444,307,204')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (38'736,102,357')
+VALUES (19,'844,605,713')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (26'444,307,204')
+VALUES (13,'941,54,276')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (30'844,605,713')
+VALUES (18,'104,301,308')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (36'855,94,355')
+VALUES (24,'736,102,357')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (14'427,432,399')
+VALUES (30,'180,845,224')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (1'444,307,204')
+VALUES (19,'736,102,357')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (5'736,102,357')
+VALUES (21,'941,54,276')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (10'736,102,357')
+VALUES (34,'313,869,619')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (32'11,12,69')
+VALUES (25,'809,845,704')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (11'736,102,357')
+VALUES (5,'648,241,166')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (34'855,94,355')
+VALUES (15,'951,396,688')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (11'844,605,713')
+VALUES (3,'736,102,357')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (23'313,869,619')
+VALUES (33,'775,400,790')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (36'736,102,357')
+VALUES (26,'435,490,542')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (15'444,307,204')
+VALUES (4,'180,845,224')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (37'11,12,69')
+VALUES (22,'427,432,399')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (40'427,432,399')
+VALUES (9,'855,94,355')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (40'736,102,357')
+VALUES (38,'427,432,399')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (35'844,605,713')
+VALUES (4,'104,301,308')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (40'844,605,713')
+VALUES (27,'941,54,276')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (24'855,94,355')
+VALUES (1,'775,400,790')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (23'444,307,204')
+VALUES (21,'844,605,713')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (9'736,102,357')
+VALUES (34,'11,12,69')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (11'775,400,790')
+VALUES (9,'844,605,713')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (1'736,102,357')
+VALUES (4,'809,845,704')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (34'844,605,713')
+VALUES (34,'799,174,477')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (7'799,174,477')
+VALUES (23,'941,54,276')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (20'844,605,713')
+VALUES (24,'855,94,355')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (32'427,432,399')
+VALUES (20,'799,174,477')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (32'844,605,713')
+VALUES (33,'11,12,69')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (38'775,400,790')
+VALUES (17,'775,400,790')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (36'736,102,357')
+VALUES (9,'648,241,166')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (36'855,94,355')
+VALUES (23,'775,400,790')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (26'799,174,477')
+VALUES (20,'951,396,688')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (31'648,241,166')
+VALUES (33,'844,605,713')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (18'427,432,399')
+VALUES (1,'941,54,276')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (12'427,432,399')
+VALUES (37,'775,400,790')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (25'313,869,619')
+VALUES (31,'775,400,790')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (31'799,174,477')
+VALUES (35,'799,174,477')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (14'313,869,619')
+VALUES (22,'855,94,355')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (30'855,94,355')
+VALUES (40,'855,94,355')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (25'11,12,69')
+VALUES (32,'736,102,357')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (31'809,845,704')
+VALUES (37,'11,12,69')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (11'855,94,355')
+VALUES (37,'809,845,704')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (32'951,396,688180,845,224')
+VALUES (37,'844,605,713')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (3'435,490,542')
+VALUES (32,'775,400,790')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (11'11,12,69')
+VALUES (38,'844,605,713')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (29'313,869,619')
+VALUES (5,'951,396,688')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (38'775,400,790')
+VALUES (22,'941,54,276')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (25'951,396,688180,845,224')
+VALUES (24,'313,869,619')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (29'435,490,542')
+VALUES (2,'435,490,542')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (38'844,605,713')
+VALUES (25,'941,54,276')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (14'11,12,69')
+VALUES (12,'736,102,357')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (7'855,94,355')
+VALUES (8,'941,54,276')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (12'736,102,357')
+VALUES (15,'799,174,477')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (11'313,869,619')
+VALUES (34,'775,400,790')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (40'444,307,204')
+VALUES (24,'11,12,69')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (39'844,605,713')
+VALUES (3,'648,241,166')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (19'799,174,477')
+VALUES (23,'11,12,69')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (18'444,307,204')
+VALUES (24,'775,400,790')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (25'444,307,204')
+VALUES (2,'104,301,308')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (4'736,102,357')
+VALUES (39,'844,605,713')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (7'444,307,204')
+VALUES (4,'427,432,399')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (32'809,845,704')
+VALUES (15,'180,845,224')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (35'844,605,713')
+VALUES (40,'104,301,308')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (28'941,54,276')
+VALUES (13,'648,241,166')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (17'941,54,276')
+VALUES (39,'11,12,69')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (27'435,490,542')
+VALUES (12,'844,605,713')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (14'855,94,355')
+VALUES (33,'313,869,619')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (38'799,174,477')
+VALUES (12,'809,845,704')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (33'435,490,542')
+VALUES (10,'736,102,357')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (13'313,869,619')
+VALUES (17,'809,845,704')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (20'951,396,688180,845,224')
+VALUES (33,'435,490,542')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (20'11,12,69')
+VALUES (26,'799,174,477')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (37'104,301,308')
+VALUES (30,'427,432,399')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (40'775,400,790')
+VALUES (20,'11,12,69')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (18'799,174,477')
+VALUES (8,'444,307,204')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (39'736,102,357')
+VALUES (37,'313,869,619')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (26'809,845,704')
+VALUES (23,'951,396,688')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (25'775,400,790')
+VALUES (24,'104,301,308')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (7'941,54,276')
+VALUES (6,'775,400,790')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (1'427,432,399')
+VALUES (20,'736,102,357')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (18'427,432,399')
+VALUES (5,'736,102,357')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (24'941,54,276')
+VALUES (27,'736,102,357')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (32'809,845,704')
+VALUES (23,'427,432,399')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (21'736,102,357')
+VALUES (28,'809,845,704')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (16'844,605,713')
+VALUES (5,'855,94,355')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (18'648,241,166')
+VALUES (35,'11,12,69')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (19'799,174,477')
+VALUES (13,'427,432,399')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (15'799,174,477')
+VALUES (19,'951,396,688')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (30'775,400,790')
+VALUES (13,'809,845,704')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (35'11,12,69')
+VALUES (38,'435,490,542')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (24'444,307,204')
+VALUES (12,'427,432,399')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (13'648,241,166')
+VALUES (26,'809,845,704')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (5'941,54,276')
+VALUES (11,'104,301,308')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (24'444,307,204')
+VALUES (18,'809,845,704')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (17'941,54,276')
+VALUES (20,'775,400,790')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (7'444,307,204')
+VALUES (38,'11,12,69')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (8'855,94,355')
+VALUES (25,'313,869,619')
 GO
 INSERT INTO ds3.Localizacao_Adversario(Adversario,Localizacao)
-VALUES (7'427,432,399')
+VALUES (29,'951,396,688')
 GO
-
-

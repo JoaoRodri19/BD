@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DS3", "DS3\DS3.csproj", "{DDC2BE25-9D4E-47B4-BE0E-470B1D30F57B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ds3", "Ds3.csproj", "{28CE8976-2DD0-4EB4-8968-1ED7D490195C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DDC2BE25-9D4E-47B4-BE0E-470B1D30F57B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DDC2BE25-9D4E-47B4-BE0E-470B1D30F57B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DDC2BE25-9D4E-47B4-BE0E-470B1D30F57B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DDC2BE25-9D4E-47B4-BE0E-470B1D30F57B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28CE8976-2DD0-4EB4-8968-1ED7D490195C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28CE8976-2DD0-4EB4-8968-1ED7D490195C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28CE8976-2DD0-4EB4-8968-1ED7D490195C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28CE8976-2DD0-4EB4-8968-1ED7D490195C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B1371B70-2709-43B3-8A7A-87F2704CDE66}
+		SolutionGuid = {FE80E84F-44EE-4500-86E7-E3EFDB2C7E7D}
 	EndGlobalSection
 EndGlobal
