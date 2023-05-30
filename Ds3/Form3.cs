@@ -10,13 +10,13 @@ using System.Data.SqlClient;
 
 namespace Ds3
 {
-    public partial class Form1 : Form
+    public partial class Form3 : Form
     {
         private SqlConnection cn;
         private int currentContact;
         private bool adding;
 
-        public Form1()
+        public Form3()
         {
             InitializeComponent();
         }
@@ -60,23 +60,22 @@ namespace Ds3
             if (!verifySGBDConnection())
                 return;
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM ds3.Bosses " +
-                "JOIN ds3.Adversario on Bosses.Adversario = Adversario.Personagem" +
-                "JOIN Personagem on Persongem" +
-                "JOIN Localizacao_Adversario on Adversario.Personagem = Localizacao_Adversario.Persongem" +
-                "JOIN Localizacao.coordenadas =  Localizacao_Adversario.coordenada" +
-                "JOIN Zona on Zona.Nome = Localizacao.Zona ", cn);
+            SqlCommand cmd = new SqlCommand("exec GetBossInformation", cn);
             SqlDataReader reader = cmd.ExecuteReader();
             listBox1.Items.Clear();
-
+            
             while (reader.Read())
             {
 
-                Saves S = new Saves();
-                S.ID = reader["ID"].ToString();
-                S.Ultima_localizacao = reader["Ultima_localizacao"].ToString();
-                S.Horas = reader["Horas"].ToString();
-                S.Jogador = reader["Jogador"].ToString();
+                BossInfo S = new BossInfo();
+                S.Nome = reader.GetString(0);
+                S.Hp =   reader.GetInt32(1).ToString();
+                S.Zona = reader.GetString(2);
+                Console.WriteLine($"Nome: {S.Nome}");
+                Console.WriteLine($"HP: {S.Hp}");
+                Console.WriteLine($"Zona: {S.Zona}");
+
+
                 listBox1.Items.Add(S);
             }
 
@@ -205,12 +204,11 @@ namespace Ds3
         {
             if (listBox1.Items.Count == 0 | currentContact < 0)
                 return;
-            Saves contact = new Saves();
-            contact = (Saves)listBox1.Items[currentContact];
-            txtID.Text = contact.ID;
-            txtJogador.Text = contact.Ultima_localizacao;
-            txtHoras.Text = contact.Horas;
-            txtUltima_localizacao.Text = contact.Jogador;
+            BossInfo boss = new BossInfo();
+            boss = (BossInfo)listBox1.Items[currentContact];
+            txtID.Text = boss.Nome;
+            txtJogador.Text = boss.Hp;
+            txtHoras.Text = boss.Zona;
 
         }
 

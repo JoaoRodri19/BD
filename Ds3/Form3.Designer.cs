@@ -1,6 +1,6 @@
 ﻿namespace Ds3
 {
-    partial class Form1
+    partial class Form3
     {
         /// <summary>
         /// Required designer variable.
@@ -34,8 +34,6 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.txtUltima_localizacao = new System.Windows.Forms.TextBox();
-            this.txtHoras = new System.Windows.Forms.TextBox();
             this.txtJogador = new System.Windows.Forms.TextBox();
             this.Label_ID = new System.Windows.Forms.Label();
             this.Label4 = new System.Windows.Forms.Label();
@@ -46,7 +44,6 @@
             this.Label7 = new System.Windows.Forms.Label();
             this.Label6 = new System.Windows.Forms.Label();
             this.Label5 = new System.Windows.Forms.Label();
-            this.Label_Ultima_localizacao = new System.Windows.Forms.Label();
             this.Label_Horas = new System.Windows.Forms.Label();
             this.Label_Jogador = new System.Windows.Forms.Label();
             this.bttnCancel = new System.Windows.Forms.Button();
@@ -58,6 +55,9 @@
             this.loadCustomersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtHoras = new System.Windows.Forms.TextBox();
+            this.Label_Ultima_localizacao = new System.Windows.Forms.Label();
+            this.txtUltima_localizacao = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -73,7 +73,7 @@
             this.panel1.Controls.Add(this.splitContainer1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 26);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1057, 535);
             this.panel1.TabIndex = 0;
@@ -82,7 +82,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -102,7 +102,7 @@
             this.panel2.Controls.Add(this.listBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(487, 535);
             this.panel2.TabIndex = 0;
@@ -113,7 +113,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(487, 535);
             this.listBox1.TabIndex = 1;
@@ -142,7 +142,7 @@
             this.panel3.Controls.Add(this.bttnDelete);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(565, 535);
             this.panel3.TabIndex = 0;
@@ -152,40 +152,18 @@
             this.txtID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtID.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.txtID.Location = new System.Drawing.Point(61, 87);
-            this.txtID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtID.Margin = new System.Windows.Forms.Padding(4);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(91, 26);
+            this.txtID.Size = new System.Drawing.Size(356, 26);
             this.txtID.TabIndex = 140;
-            // 
-            // txtUltima_localizacao
-            // 
-            this.txtUltima_localizacao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUltima_localizacao.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.txtUltima_localizacao.Location = new System.Drawing.Point(60, 193);
-            this.txtUltima_localizacao.Margin = new System.Windows.Forms.Padding(4, 1, 4, 4);
-            this.txtUltima_localizacao.Name = "txtUltima_localizacao";
-            this.txtUltima_localizacao.ReadOnly = true;
-            this.txtUltima_localizacao.Size = new System.Drawing.Size(457, 26);
-            this.txtUltima_localizacao.TabIndex = 121;
-            // 
-            // txtHoras
-            // 
-            this.txtHoras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtHoras.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.txtHoras.Location = new System.Drawing.Point(60, 144);
-            this.txtHoras.Margin = new System.Windows.Forms.Padding(4, 1, 4, 4);
-            this.txtHoras.Name = "txtHoras";
-            this.txtHoras.ReadOnly = true;
-            this.txtHoras.Size = new System.Drawing.Size(351, 26);
-            this.txtHoras.TabIndex = 119;
             // 
             // txtJogador
             // 
             this.txtJogador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtJogador.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.txtJogador.Location = new System.Drawing.Point(161, 87);
-            this.txtJogador.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtJogador.Location = new System.Drawing.Point(61, 167);
+            this.txtJogador.Margin = new System.Windows.Forms.Padding(4);
             this.txtJogador.Name = "txtJogador";
             this.txtJogador.ReadOnly = true;
             this.txtJogador.Size = new System.Drawing.Size(356, 26);
@@ -200,7 +178,7 @@
             this.Label_ID.Name = "Label_ID";
             this.Label_ID.Size = new System.Drawing.Size(96, 20);
             this.Label_ID.TabIndex = 139;
-            this.Label_ID.Text = "ID";
+            this.Label_ID.Text = "Nome";
             // 
             // Label4
             // 
@@ -221,7 +199,7 @@
             this.bttnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bttnOK.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.bttnOK.Location = new System.Drawing.Point(324, 465);
-            this.bttnOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bttnOK.Margin = new System.Windows.Forms.Padding(4);
             this.bttnOK.Name = "bttnOK";
             this.bttnOK.Size = new System.Drawing.Size(128, 39);
             this.bttnOK.TabIndex = 133;
@@ -234,7 +212,7 @@
             this.bttnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bttnEdit.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.bttnEdit.Location = new System.Drawing.Point(222, 465);
-            this.bttnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bttnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.bttnEdit.Name = "bttnEdit";
             this.bttnEdit.Size = new System.Drawing.Size(128, 39);
             this.bttnEdit.TabIndex = 131;
@@ -269,22 +247,11 @@
             this.Label5.Size = new System.Drawing.Size(100, 23);
             this.Label5.TabIndex = 146;
             // 
-            // Label_Ultima_localizacao
-            // 
-            this.Label_Ultima_localizacao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Label_Ultima_localizacao.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label_Ultima_localizacao.Location = new System.Drawing.Point(57, 171);
-            this.Label_Ultima_localizacao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 1);
-            this.Label_Ultima_localizacao.Name = "Label_Ultima_localizacao";
-            this.Label_Ultima_localizacao.Size = new System.Drawing.Size(96, 20);
-            this.Label_Ultima_localizacao.TabIndex = 120;
-            this.Label_Ultima_localizacao.Text = "Ultima Localização";
-            // 
             // Label_Horas
             // 
             this.Label_Horas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Label_Horas.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label_Horas.Location = new System.Drawing.Point(57, 122);
+            this.Label_Horas.Location = new System.Drawing.Point(58, 214);
             this.Label_Horas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 1);
             this.Label_Horas.Name = "Label_Horas";
             this.Label_Horas.Size = new System.Drawing.Size(96, 20);
@@ -295,19 +262,19 @@
             // 
             this.Label_Jogador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Label_Jogador.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label_Jogador.Location = new System.Drawing.Point(161, 60);
+            this.Label_Jogador.Location = new System.Drawing.Point(58, 139);
             this.Label_Jogador.Margin = new System.Windows.Forms.Padding(4, 1, 4, 4);
             this.Label_Jogador.Name = "Label_Jogador";
             this.Label_Jogador.Size = new System.Drawing.Size(96, 20);
             this.Label_Jogador.TabIndex = 116;
-            this.Label_Jogador.Text = "Jogador";
+            this.Label_Jogador.Text = "HP";
             // 
             // bttnCancel
             // 
             this.bttnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bttnCancel.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.bttnCancel.Location = new System.Drawing.Point(113, 465);
-            this.bttnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bttnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.bttnCancel.Name = "bttnCancel";
             this.bttnCancel.Size = new System.Drawing.Size(128, 39);
             this.bttnCancel.TabIndex = 132;
@@ -320,7 +287,7 @@
             this.bttnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bttnAdd.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.bttnAdd.Location = new System.Drawing.Point(57, 465);
-            this.bttnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bttnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.bttnAdd.Name = "bttnAdd";
             this.bttnAdd.Size = new System.Drawing.Size(128, 39);
             this.bttnAdd.TabIndex = 130;
@@ -332,7 +299,7 @@
             this.bttnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bttnDelete.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.bttnDelete.Location = new System.Drawing.Point(380, 465);
-            this.bttnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bttnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.bttnDelete.Name = "bttnDelete";
             this.bttnDelete.Size = new System.Drawing.Size(128, 39);
             this.bttnDelete.TabIndex = 136;
@@ -388,7 +355,40 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // Form1
+            // txtHoras
+            // 
+            this.txtHoras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtHoras.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.txtHoras.Location = new System.Drawing.Point(57, 245);
+            this.txtHoras.Margin = new System.Windows.Forms.Padding(4, 1, 4, 4);
+            this.txtHoras.Name = "txtHoras";
+            this.txtHoras.ReadOnly = true;
+            this.txtHoras.Size = new System.Drawing.Size(351, 26);
+            this.txtHoras.TabIndex = 119;
+            // 
+            // Label_Ultima_localizacao
+            // 
+            this.Label_Ultima_localizacao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Label_Ultima_localizacao.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.Label_Ultima_localizacao.Location = new System.Drawing.Point(67, 311);
+            this.Label_Ultima_localizacao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 1);
+            this.Label_Ultima_localizacao.Name = "Label_Ultima_localizacao";
+            this.Label_Ultima_localizacao.Size = new System.Drawing.Size(96, 20);
+            this.Label_Ultima_localizacao.TabIndex = 120;
+            this.Label_Ultima_localizacao.Text = "Ultima Localização";
+            // 
+            // txtUltima_localizacao
+            // 
+            this.txtUltima_localizacao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUltima_localizacao.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.txtUltima_localizacao.Location = new System.Drawing.Point(57, 351);
+            this.txtUltima_localizacao.Margin = new System.Windows.Forms.Padding(4, 1, 4, 4);
+            this.txtUltima_localizacao.Name = "txtUltima_localizacao";
+            this.txtUltima_localizacao.ReadOnly = true;
+            this.txtUltima_localizacao.Size = new System.Drawing.Size(457, 26);
+            this.txtUltima_localizacao.TabIndex = 121;
+            // 
+            // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -396,8 +396,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "Form3";
             this.Text = "ss";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
@@ -434,7 +434,6 @@
         internal System.Windows.Forms.Label Label7;
         internal System.Windows.Forms.Label Label6;
         internal System.Windows.Forms.Label Label5;
-        internal System.Windows.Forms.Label Label_Ultima_localizacao;
         internal System.Windows.Forms.Label Label_Horas;
         internal System.Windows.Forms.Label Label_Jogador;
         internal System.Windows.Forms.Button bttnCancel;
@@ -443,8 +442,6 @@
         internal System.Windows.Forms.TextBox txtTel;
         internal System.Windows.Forms.TextBox txtState;
         internal System.Windows.Forms.TextBox txtCity;
-        internal System.Windows.Forms.TextBox txtUltima_localizacao;
-        internal System.Windows.Forms.TextBox txtHoras;
         internal System.Windows.Forms.TextBox txtJogador;
         private System.Windows.Forms.Button bttnDelete;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -452,6 +449,9 @@
         private System.Windows.Forms.ToolStripMenuItem loadCustomersToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        internal System.Windows.Forms.TextBox txtHoras;
+        internal System.Windows.Forms.TextBox txtUltima_localizacao;
+        internal System.Windows.Forms.Label Label_Ultima_localizacao;
     }
 }
 
