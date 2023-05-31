@@ -9,7 +9,7 @@ namespace Ds3
 {
 
     [Serializable()]
-    public class Boss
+    public class Boss : Adversario
     {
         private String _Trilha_Sonora;
         private String _Dialogo;
@@ -41,8 +41,9 @@ namespace Ds3
         {
         }
 
-        public Boss(String Trilha_Sonora, String Dialogo, String Adversario) : base()
+        public Boss(String Pontos_De_Vida, String ID, String Drops, String Fraqueza, String Resistencia, String Imunidade, String Personagem, String Trilha_Sonora, String Dialogo, String Adversario) : base(Pontos_De_Vida, ID, Drops, Fraqueza, Resistencia, Imunidade, Personagem)
         {
+            
             this._Trilha_Sonora = Trilha_Sonora;
             this._Dialogo = Dialogo;
             this._Adversario = Adversario;

@@ -59,6 +59,7 @@
     <Compile Include="classes\Item_Personagem.cs" />
     <Compile Include="classes\Jogador.cs" />
     <Compile Include="classes\Jogador_Atributos.cs" />
+    <Compile Include="classes\ListBoss.cs" />
     <Compile Include="classes\Localizacao.cs" />
     <Compile Include="classes\Localizacao_Adversario.cs" />
     <Compile Include="classes\NPC.cs" />

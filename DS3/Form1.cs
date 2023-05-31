@@ -29,12 +29,12 @@ namespace Ds3
         }
 
 
-        private SqlConnection getSGBDConnection() 
+        private SqlConnection getSGBDConnection()
         {
             return new SqlConnection("data source= tcp:mednat.ieeta.pt\\SQLSERVER,8101;initial catalog=p3g1;uid=p3g1;password=-102487102578@BD");
         }
 
-        private bool verifySGBDConnection() 
+        private bool verifySGBDConnection()
         {
             if (cn == null)
                 cn = getSGBDConnection();
@@ -113,7 +113,7 @@ namespace Ds3
 
         private void UpdateContact(Saves C)
         {
-            
+
         }
 
 
@@ -336,7 +336,7 @@ namespace Ds3
             Application.Exit();
         }
 
-  
+
 
 
     }

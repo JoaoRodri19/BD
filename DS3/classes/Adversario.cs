@@ -9,7 +9,7 @@ namespace Ds3
 {
 
     [Serializable()]
-    public class Adversario
+    public class Adversario : Personagem
     {
         private String _Drops;
         private String _Fraqueza;
@@ -55,7 +55,7 @@ namespace Ds3
         {
         }
 
-        public Adversario(String Drops, String Fraqueza, String Resistencia, String Imunidade, String Personagem) : base()
+        public Adversario(String Pontos_De_Vida, String ID, String Drops, String Fraqueza, String Resistencia, String Imunidade, String Personagem) : base(Personagem, Pontos_De_Vida, ID)
         {
             this._Drops = Drops;
             this._Fraqueza = Fraqueza;
