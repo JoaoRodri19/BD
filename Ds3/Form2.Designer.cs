@@ -34,7 +34,7 @@
             // 
             // btSaves
             // 
-            this.btSaves.Location = new System.Drawing.Point(415, 104);
+            this.btSaves.Location = new System.Drawing.Point(695, 151);
             this.btSaves.Name = "btSaves";
             this.btSaves.Size = new System.Drawing.Size(198, 86);
             this.btSaves.TabIndex = 0;
@@ -44,7 +44,7 @@
             // 
             // btBosses
             // 
-            this.btBosses.Location = new System.Drawing.Point(157, 104);
+            this.btBosses.Location = new System.Drawing.Point(328, 151);
             this.btBosses.Name = "btBosses";
             this.btBosses.Size = new System.Drawing.Size(190, 86);
             this.btBosses.TabIndex = 1;

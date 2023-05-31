@@ -9,7 +9,7 @@ namespace Ds3
 {
 
     [Serializable()]
-    public class Jogador
+    public class Jogador : Personagem
     {
         private String _Personagem;
         private String _Item_Discovery;
@@ -59,10 +59,6 @@ namespace Ds3
         {
             get { return _Nivel; }
             set { _Nivel = value; }
-        }
-        public String toString()
-        {
-            return "";
         }
 
         public Jogador() : base()

@@ -71,7 +71,7 @@ namespace Ds3
                 ShowContact();
             }
         }
-        private String nullToEmpty(String a) { if (a == null) return ""; return a; }
+       
         private void loadCustomersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!verifySGBDConnection())
@@ -514,6 +514,13 @@ namespace Ds3
                 }
 
             }
+        }
+
+        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 x = new Form2();
+            x.Show();
+            this.Hide();
         }
     }
 }

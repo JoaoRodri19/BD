@@ -51,17 +51,8 @@ GO
 INSERT INTO ds3.Zona(Nome,Trilha_Sonora)
 VALUES ('Untended Graves',null)
 
---Saves
 
-INSERT INTO ds3.Saves(Horas,ID)
-VALUES (DATEADD(HOUR, 83, CAST('00:00:00' AS TIME)),1)
-GO
-INSERT INTO ds3.Saves(Horas,ID)
-VALUES (DATEADD(HOUR, 43, CAST('00:00:00' AS TIME)),2)
-GO
-INSERT INTO ds3.Saves(Horas,ID)
-VALUES (DATEADD(HOUR, 17, CAST('00:00:00' AS TIME)),3)
-GO
+
 
 --Personagem_save
 
@@ -87,6 +78,23 @@ INSERT INTO ds3.Jogador(Personagem,Item_Discovery,Stamina,Classe,Equip_Load,Focu
 VALUES (43,93,102,'Thief',46,51,23)
 GO
 
+--Saves
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (null,'High Wall of Lothric','1,1,1')
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (null,'High Wall of Lothric','2,2,2')
+INSERT INTO ds3.Localizacao(Item,Zona,Coordenadas)
+VALUES (null,'High Wall of Lothric','3,3,3')
+
+INSERT INTO ds3.Saves(Horas,ID,Ultima_localizacao,Jogador)
+VALUES (DATEADD(HOUR, 83, CAST('00:00:00' AS TIME)),1,'1,1,1',41)
+GO
+INSERT INTO ds3.Saves(Horas,ID)
+VALUES (DATEADD(HOUR, 43, CAST('00:00:00' AS TIME)),2,'2,2,2',42)
+GO
+INSERT INTO ds3.Saves(Horas,ID)
+VALUES (DATEADD(HOUR, 17, CAST('00:00:00' AS TIME)),3,'3,3,3',43)
+GO
 --Atributos
 
 INSERT INTO ds3.Atributos(ID,Designacao,Valor)

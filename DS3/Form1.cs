@@ -19,6 +19,18 @@ namespace Ds3
         public Form1()
         {
             InitializeComponent();
+
+            DropClass.Items.Add("Knight");
+            DropClass.Items.Add("Warrior");
+            DropClass.Items.Add("Thief");
+            DropClass.Items.Add("Sorcerer");
+
+            DropClass.SelectedIndexChanged += DropClass_SelectedIndexChanged;
+        }
+
+        private void DropClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedItem = DropClass.SelectedItem.ToString();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -60,19 +72,34 @@ namespace Ds3
             if (!verifySGBDConnection())
                 return;
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM ds3.Saves", cn);
+            SqlCommand cmd = new SqlCommand("GetAllSavesInformation", cn);
             SqlDataReader reader = cmd.ExecuteReader();
             listBox1.Items.Clear();
 
             while (reader.Read())
             {
 
-                Saves S = new Saves();
-                S.ID = reader["ID"].ToString();
-                S.Ultima_localizacao = reader["Ultima_localizacao"].ToString();
-                S.Horas = reader["Horas"].ToString();
-                S.Jogador = reader["Jogador"].ToString();
-                listBox1.Items.Add(S);
+                ListSaves Save = new ListSaves
+                {
+                    save = new Saves(),
+                    jog = new Jogador()
+                };
+
+                Save.save.ID = reader.IsDBNull(0) ? null : reader.GetInt32(0).ToString();
+                Save.save.Ultima_localizacao = reader.GetString(1);
+                Save.save.Horas = reader.GetTimeSpan(2).ToString();
+                Save.save.Jogador = reader.IsDBNull(3) ? null : reader.GetInt32(3).ToString();
+                Save.jog.ID = reader.IsDBNull(4) ? null : reader.GetInt32(4).ToString();
+                Save.jog.Item_Discovery = reader.GetInt32(5).ToString();
+                Save.jog.Stamina = reader.GetInt32(6).ToString();
+                Save.jog.Classe = reader.GetString(7);
+                Save.jog.Equip_Load = reader.GetFloat(8).ToString();
+                Save.jog.Focus_Points = reader.GetInt32(9).ToString();
+                Save.jog.Nivel = reader.GetInt16(10).ToString();
+                Save.jog.Nome = reader.GetString(11);
+                Save.jog.Pontos_De_Vida = reader.GetInt32(12).ToString();
+                
+                listBox1.Items.Add(Save);
             }
 
             cn.Close();
@@ -82,18 +109,25 @@ namespace Ds3
             ShowContact();
         }
 
-        private void SubmitContact(Saves S)
+        private void SubmitContact(ListSaves Save)
         {
             if (!verifySGBDConnection())
                 return;
             SqlCommand cmd = new SqlCommand();
 
-            cmd.CommandText = "INSERT Saves (ID, Ultima_localizacao, Horas, Jogador) VALUES (@ID, @Ultima_localizacao, @Horas, @Jogador)";
+            cmd.CommandText = "exec InsertSave @Ultima_localizacao,@Horas,@Item_Discovery,@Stamina,@Classe,@Equip_Load,@Focus_Points,@Nivel,@Nome,@Zona,@Pontos_De_Vida";
             cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@ID", S.ID);
-            cmd.Parameters.AddWithValue("@Ultima_localizacao", S.Ultima_localizacao);
-            cmd.Parameters.AddWithValue("@Horas", S.Horas);
-            cmd.Parameters.AddWithValue("@Jogador", S.Jogador);
+            cmd.Parameters.AddWithValue("@Ultima_localizacao", Save.save.Ultima_localizacao);
+            cmd.Parameters.AddWithValue("@Horas", Save.save.Horas);
+            cmd.Parameters.AddWithValue("@Item_Discovery", Save.jog.Item_Discovery);
+            cmd.Parameters.AddWithValue("@Stamina", Save.jog.Stamina);
+            cmd.Parameters.AddWithValue("@Classe", Save.jog.Classe);
+            cmd.Parameters.AddWithValue("@Equip_Load", Save.jog.Equip_Load);
+            cmd.Parameters.AddWithValue("@Focus_Points", Save.jog.Focus_Points);
+            cmd.Parameters.AddWithValue("@Nivel", Save.jog.Nivel);
+            cmd.Parameters.AddWithValue("@Nome", Save.jog.Nome);
+            cmd.Parameters.AddWithValue("@Zona", "Cemetery of Ash");
+            cmd.Parameters.AddWithValue("@Pontos_De_Vida", Save.jog.Pontos_De_Vida);
             cmd.Connection = cn;
 
             try
@@ -102,7 +136,7 @@ namespace Ds3
             }
             catch (Exception ex)
             {
-                throw new Exception("Failed to update contact in database. \n ERROR MESSAGE: \n" + ex.Message);
+                throw new Exception("Failed to update Save in database. \n ERROR MESSAGE: \n" + ex.Message);
             }
             finally
             {
@@ -117,16 +151,17 @@ namespace Ds3
         }
 
 
-        private void RemoveContact(string ContactID)
+        private void RemoveContact(ListSaves Save)
         {
             if (!verifySGBDConnection())
                 return;
             SqlCommand cmd = new SqlCommand();
 
-            cmd.CommandText = "DELETE Customers WHERE CustomerID=@contactID ";
+            cmd.CommandText = "exec DeleteSave @ID";
             cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@contactID", ContactID);
+            cmd.Parameters.AddWithValue("@ID", Save.save.ID);
             cmd.Connection = cn;
+
 
             try
             {
@@ -134,7 +169,7 @@ namespace Ds3
             }
             catch (Exception ex)
             {
-                throw new Exception("Failed to delete contact in database. \n ERROR MESSAGE: \n" + ex.Message);
+                throw new Exception("Failed to delete Save in database. \n ERROR MESSAGE: \n" + ex.Message);
             }
             finally
             {
@@ -146,30 +181,31 @@ namespace Ds3
         // Helper routines
         public void LockControls()
         {
-            txtID.ReadOnly = true;
-            txtJogador.ReadOnly = true;
+            txtHP.ReadOnly = true;
+            txtEquip_Load.ReadOnly = true;
+            txtItem_Discovery.ReadOnly = true;
+            txtStamina.ReadOnly = true;
+            txtStamina.ReadOnly = true;
+            txtNivel.ReadOnly = true;
             txtHoras.ReadOnly = true;
-            txtUltima_localizacao.ReadOnly = true;
-            txtCity.ReadOnly = true;
-            txtState.ReadOnly = true;
-            txtZIP.ReadOnly = true;
-            txtCountry.ReadOnly = true;
-            txtTel.ReadOnly = true;
-            txtFax.ReadOnly = true;
+            txtUltima_Localizacao.ReadOnly = true;
+            txtNome.ReadOnly = true;
+            txtFocusPoints.ReadOnly = true;
         }
 
         public void UnlockControls()
         {
-            txtID.ReadOnly = false;
-            txtJogador.ReadOnly = false;
+            txtHP.ReadOnly = false;
+            txtEquip_Load.ReadOnly = false;
+            txtItem_Discovery.ReadOnly = false;
+            txtStamina.ReadOnly = false;
+            txtStamina.ReadOnly = false;
+            txtNivel.ReadOnly = false;
             txtHoras.ReadOnly = false;
-            txtUltima_localizacao.ReadOnly = false;
-            txtCity.ReadOnly = false;
-            txtState.ReadOnly = false;
-            txtZIP.ReadOnly = false;
-            txtCountry.ReadOnly = false;
-            txtTel.ReadOnly = false;
-            txtFax.ReadOnly = false;
+            txtUltima_Localizacao.ReadOnly = false;
+            txtNome.ReadOnly = false;
+            txtFocusPoints.ReadOnly = false;
+
         }
 
         public void ShowButtons()
@@ -180,32 +216,40 @@ namespace Ds3
             bttnEdit.Visible = true;
             bttnOK.Visible = false;
             bttnCancel.Visible = false;
+            DropClass.Visible = false;
+            txtClass.Visible = true;
         }
 
         public void ClearFields()
         {
-            txtID.Text = "";
-            txtJogador.Text = "";
+            txtHP.Text = "";
+            txtEquip_Load.Text = "";
+            txtItem_Discovery.Text = "";
+            txtStamina.Text = "";
+            txtStamina.Text = "";
+            txtNivel.Text = "";
             txtHoras.Text = "";
-            txtUltima_localizacao.Text = "";
-            txtCity.Text = "";
-            txtZIP.Text = "";
-            txtState.Text = "";
-            txtTel.Text = "";
-            txtFax.Text = "";
-            txtCountry.Text = "";
+            txtUltima_Localizacao.Text = "";
+            txtNome.Text = "";
+            txtFocusPoints.Text = "";
         }
 
         public void ShowContact()
         {
             if (listBox1.Items.Count == 0 | currentContact < 0)
                 return;
-            Saves contact = new Saves();
-            contact = (Saves)listBox1.Items[currentContact];
-            txtID.Text = contact.ID;
-            txtJogador.Text = contact.Ultima_localizacao;
-            txtHoras.Text = contact.Horas;
-            txtUltima_localizacao.Text = contact.Jogador;
+            ListSaves Save = new ListSaves();
+            Save = (ListSaves)listBox1.Items[currentContact];
+            txtHP.Text = Save.jog.Pontos_De_Vida;
+            txtEquip_Load.Text = Save.jog.Equip_Load;
+            txtItem_Discovery.Text = Save.jog.Item_Discovery;
+            txtStamina.Text = Save.jog.Stamina;
+            txtNivel.Text = Save.jog.Nivel;
+            txtHoras.Text = Save.save.Horas;
+            txtUltima_Localizacao.Text = Save.save.Ultima_localizacao;
+            txtNome.Text = Save.jog.Nome;
+            txtFocusPoints.Text = Save.jog.Focus_Points;
+            txtClass.Text = Save.jog.Classe;
 
         }
 
@@ -217,17 +261,78 @@ namespace Ds3
             bttnEdit.Visible = false;
             bttnOK.Visible = true;
             bttnCancel.Visible = true;
+            DropClass.Visible = true;
+            txtClass.Visible = false;
         }
 
         private bool SaveContact()
         {
-            Saves contact = new Saves();
+
+            ListSaves Save = new ListSaves
+            {
+                save = new Saves(),
+                jog = new Jogador()
+            };
+
+            String classe = DropClass.Text;
+            String equipLoad = "";
+            String stamina = "";
+            String fp = "";
+            String nivel = "";
+            String PV = "";
+            String item_Disc = "";
+
+            switch (classe)
+            {
+                case "Knight":
+                    equipLoad = "55";
+                    stamina = "90";
+                    fp = "70";
+                    nivel = "10";
+                    PV = "950";
+                    item_Disc = "100";
+                    break;
+
+                case "Warrior":
+                    equipLoad = "55";
+                    stamina = "95";
+                    fp = "60";
+                    nivel = "11";
+                    PV = "940";
+                    item_Disc = "100";
+                    break;
+                
+                case "Thief":
+                    equipLoad = "48";
+                    stamina = "94";
+                    fp = "75";
+                    nivel = "9";
+                    PV = "900";
+                    item_Disc = "120";
+                    break;
+
+                case "Sorcerer":
+                    equipLoad = "50";
+                    stamina = "85";
+                    fp = "80";
+                    nivel = "10";
+                    PV = "920";
+                    item_Disc = "110";
+                    break;
+            }
+            
             try
             {
-                contact.ID = txtID.Text;
-                contact.Ultima_localizacao = txtJogador.Text;
-                contact.Horas = txtHoras.Text;
-                contact.Jogador = txtUltima_localizacao.Text;
+                Save.save.Ultima_localizacao = "432,542,123";
+                Save.save.Horas = "0";
+                Save.jog.Nome = txtNome.Text;
+                Save.jog.Stamina = stamina;
+                Save.jog.Equip_Load = equipLoad;
+                Save.jog.Classe = classe;
+                Save.jog.Focus_Points = fp;
+                Save.jog.Item_Discovery = item_Disc;
+                Save.jog.Nivel = nivel;
+                Save.jog.Pontos_De_Vida = PV;
             }
             catch (Exception ex)
             {
@@ -236,13 +341,8 @@ namespace Ds3
             }
             if (adding)
             {
-                SubmitContact(contact);
-                listBox1.Items.Add(contact);
-            }
-            else
-            {
-                UpdateContact(contact);
-                listBox1.Items[currentContact] = contact;
+                SubmitContact(Save);
+                listBox1.Items.Add(Save);
             }
             return true;
         }
@@ -274,42 +374,13 @@ namespace Ds3
             ShowButtons();
         }
 
-        private void bttnEdit_Click(object sender, EventArgs e)
-        {
-            currentContact = listBox1.SelectedIndex;
-            if (currentContact <= 0)
-            {
-                MessageBox.Show("Please select a contact to edit");
-                return;
-            }
-            adding = false;
-            HideButtons();
-            listBox1.Enabled = false;
-        }
-
-        private void bttnOK_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                SaveContact();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            listBox1.Enabled = true;
-            int idx = listBox1.FindString(txtID.Text);
-            listBox1.SelectedIndex = idx;
-            ShowButtons();
-        }
-
         private void bttnDelete_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex > -1)
             {
                 try
                 {
-                    RemoveContact(((Saves)listBox1.SelectedItem).ID);
+                    RemoveContact(((ListSaves)listBox1.SelectedItem));
                 }
                 catch (Exception ex)
                 {
@@ -322,7 +393,7 @@ namespace Ds3
                 if (currentContact == -1)
                 {
                     ClearFields();
-                    MessageBox.Show("There are no more contacts");
+                    MessageBox.Show("There are no more Saves");
                 }
                 else
                 {
@@ -336,8 +407,78 @@ namespace Ds3
             Application.Exit();
         }
 
+        private void bttnAdd_Click_1(object sender, EventArgs e)
+        {
+            adding = true;
+            ClearFields();
+            HideButtons();
+            listBox1.Enabled = false;
+            LockControls();
+            txtNome.ReadOnly = false;
+            txtClass.ReadOnly = false;
 
+        }
 
+        private void bttnOK_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveContact();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            listBox1.Enabled = true;
+            int idx = listBox1.FindString(txtNome.Text);
+            listBox1.SelectedIndex = idx;
+            ShowButtons();
+        }
 
+        private void bttnCancel_Click_1(object sender, EventArgs e)
+        {
+            listBox1.Enabled = true;
+            if (listBox1.Items.Count > 0)
+            {
+                currentContact = listBox1.SelectedIndex;
+                if (currentContact < 0)
+                    currentContact = 0;
+                ShowContact();
+            }
+            else
+            {
+                ClearFields();
+                LockControls();
+            }
+            ShowButtons();
+        }
+
+        private void bttnDelete_Click_1(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex > -1)
+            {
+                try
+                {
+                    RemoveContact(((ListSaves)listBox1.SelectedItem));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+                listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+                if (currentContact == listBox1.Items.Count)
+                    currentContact = listBox1.Items.Count - 1;
+                if (currentContact == -1)
+                {
+                    ClearFields();
+                    MessageBox.Show("There are no more Saves");
+                }
+                else
+                {
+                    ShowContact();
+                }
+            }
+        }
     }
 }
