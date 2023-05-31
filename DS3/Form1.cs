@@ -480,5 +480,12 @@ namespace Ds3
                 }
             }
         }
+
+        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 x = new Form2();
+            x.Show();
+            this.Hide();
+        }
     }
 }

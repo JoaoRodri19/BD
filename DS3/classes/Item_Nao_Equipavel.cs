@@ -9,7 +9,7 @@ namespace Ds3
 {
 
     [Serializable()]
-    public class Item_Nao_Equipavel
+    public class Item_Nao_Equipavel : Item
     {
         private String _Quantidade;
         private String _Item;
@@ -32,6 +32,13 @@ namespace Ds3
 
         public Item_Nao_Equipavel() : base()
         {
+        }
+
+        public Item_Nao_Equipavel(Item item) : base()
+        {
+            this.ID = item.ID;
+            this.Nome = item.Nome;
+            this.Tipo = item.Tipo;
         }
 
         public Item_Nao_Equipavel(String Quantidade, String Item) : base()
