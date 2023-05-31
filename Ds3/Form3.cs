@@ -37,7 +37,7 @@ namespace Ds3
         {
             string selectedItem = DropBoss.SelectedItem.ToString();
         }
-            
+
         private void Form1_Load(object sender, EventArgs e)
         {
             cn = getSGBDConnection();
@@ -46,12 +46,12 @@ namespace Ds3
         }
 
 
-        private SqlConnection getSGBDConnection() 
+        private SqlConnection getSGBDConnection()
         {
             return new SqlConnection("data source= tcp:mednat.ieeta.pt\\SQLSERVER,8101;initial catalog=p3g1;uid=p3g1;password=-102487102578@BD");
         }
 
-        private bool verifySGBDConnection() 
+        private bool verifySGBDConnection()
         {
             if (cn == null)
                 cn = getSGBDConnection();
@@ -71,7 +71,7 @@ namespace Ds3
                 ShowContact();
             }
         }
-        private String nullToEmpty(String a) { if(a == null)return ""; return a; }
+        private String nullToEmpty(String a) { if (a == null) return ""; return a; }
         private void loadCustomersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!verifySGBDConnection())
@@ -80,11 +80,11 @@ namespace Ds3
             SqlCommand cmd = new SqlCommand("exec GetAllBossInformation", cn);
             SqlDataReader reader = cmd.ExecuteReader();
             listBox1.Items.Clear();
-            
+
             while (reader.Read())
             {
 
-                BossInfo S = new BossInfo();             
+                BossInfo S = new BossInfo();
                 Boss boss = new Boss();
                 Localizacao zona = new Localizacao();
                 boss.Trilha_Sonora = reader.GetString(0);
@@ -102,9 +102,9 @@ namespace Ds3
                 zona.Item = reader.IsDBNull(13) ? null : (reader.GetInt32(13).ToString());
                 zona.Zona = reader.IsDBNull(14) ? null : (reader.GetString(14));
 
-                ListBoss list_boss = new ListBoss(boss,zona);
-  
-               
+                ListBoss list_boss = new ListBoss(boss, zona);
+
+
                 listBox1.Items.Add(list_boss);
             }
 
@@ -117,21 +117,21 @@ namespace Ds3
 
         private void SubmitContact(ListBoss Boss)
         {
-            
+
             if (!verifySGBDConnection())
                 return;
             SqlCommand cmd = new SqlCommand();
 
-            cmd.CommandText = "exec InsertBoss @Nome,@Pontos_De_Vida,@Drops,@Fraqueza,@Resistencia,@Imunidade,@Trilha_Sonora,@Dialogo,@Nome_Zona,@Coordenadas)";
+            cmd.CommandText = "exec InsertBoss @Nome,@Pontos_De_Vida,@Drops,@Fraqueza,@Resistencia,@Imunidade,@Trilha_Sonora,@Dialogo,@Nome_Zona,@Coordenadas";
             cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@Nome", Boss.boss.ID);
+            cmd.Parameters.AddWithValue("@Nome", Boss.boss.Nome);
             cmd.Parameters.AddWithValue("@Pontos_De_Vida", Boss.boss.Pontos_De_Vida);
             cmd.Parameters.AddWithValue("@Drops", Boss.boss.Drops);
             cmd.Parameters.AddWithValue("@Fraqueza", Boss.boss.Fraqueza);
             cmd.Parameters.AddWithValue("@Resistencia", Boss.boss.Resistencia);
-            cmd.Parameters.AddWithValue("@Imunidade",Boss.boss.Imunidade );
+            cmd.Parameters.AddWithValue("@Imunidade", Boss.boss.Imunidade);
             cmd.Parameters.AddWithValue("@Trilha_Sonora", Boss.boss.Trilha_Sonora);
-            cmd.Parameters.AddWithValue("@Dialogo",Boss.boss.Dialogo);
+            cmd.Parameters.AddWithValue("@Dialogo", Boss.boss.Dialogo);
             cmd.Parameters.AddWithValue("@Nome_Zona", Boss.loc.Zona);
             cmd.Parameters.AddWithValue("@Coordenadas", Boss.loc.Coordenadas);
             cmd.Connection = cn;
@@ -148,25 +148,25 @@ namespace Ds3
             {
                 cn.Close();
             }
-            
+
         }
 
 
         private void UpdateContact(BossInfo C)
         {
-            
+
         }
 
 
-        private void RemoveContact(string ContactID)
+        private void RemoveContact(String ID)
         {
             if (!verifySGBDConnection())
                 return;
             SqlCommand cmd = new SqlCommand();
 
-            cmd.CommandText = "DELETE Customers WHERE CustomerID=@contactID ";
             cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@contactID", ContactID);
+            cmd.CommandText = "exec DeleteBoss @ID";
+            cmd.Parameters.AddWithValue("@ID", ID);
             cmd.Connection = cn;
 
             try
@@ -277,9 +277,11 @@ namespace Ds3
 
         private bool SaveContact()
         {
-            ListBoss boss = new ListBoss();
-            boss.boss = new Boss();
-            boss.loc = new Localizacao();
+            ListBoss boss = new ListBoss
+            {
+                boss = new Boss(),
+                loc = new Localizacao()
+            };
             try
             {
                 boss.boss.Nome = txtNome.Text;
@@ -311,52 +313,6 @@ namespace Ds3
             return true;
         }
 
-
-      
-        
-
-        private void bttnEdit_Click(object sender, EventArgs e)
-        {
-            currentContact = listBox1.SelectedIndex;
-            if (currentContact <= 0)
-            {
-                MessageBox.Show("Please select a contact to edit");
-                return;
-            }
-            adding = false;
-            HideButtons();
-            listBox1.Enabled = false;
-        }
-
-
-        private void bttnDelete_Click(object sender, EventArgs e)
-        {
-            if (listBox1.SelectedIndex > -1)
-            {
-                try
-                {
-                    RemoveContact(((Saves)listBox1.SelectedItem).ID);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    return;
-                }
-                listBox1.Items.RemoveAt(listBox1.SelectedIndex);
-                if (currentContact == listBox1.Items.Count)
-                    currentContact = listBox1.Items.Count - 1;
-                if (currentContact == -1)
-                {
-                    ClearFields();
-                    MessageBox.Show("There are no more contacts");
-                }
-                else
-                {
-                    ShowContact();
-                }
-            }
-        }
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -382,7 +338,7 @@ namespace Ds3
             String textFilter = txtFiltrar.Text;
             SqlCommand cmd = null;
 
-            if ( DropBoss.SelectedItem != null)
+            if (DropBoss.SelectedItem != null)
             {
                 switch (DropBoss.SelectedItem)
                 {
@@ -426,7 +382,7 @@ namespace Ds3
             }
             else
             {
-                if(Regex.IsMatch(txtHP1.Text, @"^\d+$") && (Regex.IsMatch(txtHP2.Text, @"^\d+$")))
+                if (Regex.IsMatch(txtHP1.Text, @"^\d+$") && (Regex.IsMatch(txtHP2.Text, @"^\d+$")))
                 {
 
                     String hp_inicio = txtHP1.Text;
@@ -436,7 +392,7 @@ namespace Ds3
                     cmd.Parameters.AddWithValue("@hp_fim", hp_fim);
                 }
             }
-            if (cmd == null){
+            if (cmd == null) {
                 cn.Close();
                 return;
             }
@@ -446,14 +402,14 @@ namespace Ds3
 
             while (reader.Read())
             {
-                
+
                 Boss boss = new Boss();
                 Localizacao zona = new Localizacao();
                 boss.Nome = reader.IsDBNull(0) ? null : (reader.GetString(0));
                 boss.Pontos_De_Vida = reader.IsDBNull(1) ? null : (reader.GetInt32(1).ToString());
                 zona.Zona = reader.IsDBNull(2) ? null : (reader.GetString(2));
 
-                ListBoss listBoss = new ListBoss(boss,zona);
+                ListBoss listBoss = new ListBoss(boss, zona);
 
                 listBox1.Items.Add(listBoss);
             }
@@ -463,7 +419,7 @@ namespace Ds3
 
             currentContact = 0;
             ShowContact();
-        
+
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -516,6 +472,48 @@ namespace Ds3
                 LockControls();
             }
             ShowButtons();
+        }
+
+        private void bttnEdit_Click_1(object sender, EventArgs e)
+        {
+            currentContact = listBox1.SelectedIndex;
+            if (currentContact <= 0)
+            {
+                MessageBox.Show("Please select a contact to edit");
+                return;
+            }
+            adding = false;
+            HideButtons();
+            listBox1.Enabled = false;
+        }
+
+        private void bttnDelete_Click_1(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex > -1)
+            {
+                try
+                {
+                    RemoveContact(((ListBoss)listBox1.SelectedItem).boss.ID);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+                listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+                if (currentContact == listBox1.Items.Count)
+                    currentContact = listBox1.Items.Count - 1;
+                if (currentContact == -1)
+                {
+                    ClearFields();
+                    MessageBox.Show("There are no more contacts");
+                }
+                else
+                {
+                    ShowContact();
+                }
+
+            }
         }
     }
 }

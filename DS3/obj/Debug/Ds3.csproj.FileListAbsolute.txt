@@ -21,3 +21,6 @@ C:\Users\João Rodrigues\OneDrive\Ambiente de Trabalho\guiao2BD\BD\Ds3\obj\Debug
 C:\Users\João Rodrigues\OneDrive\Ambiente de Trabalho\guiao2BD\BD\Ds3\obj\Debug\Ds3.Form1.resources
 C:\Users\João Rodrigues\OneDrive\Ambiente de Trabalho\guiao2BD\BD\Ds3\obj\Debug\Ds3.Form2.resources
 C:\Users\João Rodrigues\OneDrive\Ambiente de Trabalho\guiao2BD\BD\Ds3\obj\Debug\Ds3.Form3.resources
+C:\Users\João Mourão\Desktop\GitHub\BD\DS3\obj\Debug\Ds3.Form1.resources
+C:\Users\João Mourão\Desktop\GitHub\BD\DS3\obj\Debug\Ds3.Form2.resources
+C:\Users\João Mourão\Desktop\GitHub\BD\DS3\obj\Debug\Ds3.Form3.resources
