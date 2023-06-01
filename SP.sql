@@ -68,7 +68,7 @@ SELECT
 END;
 GO
 ----------------------------------------------------------------------------------------------------------------------------
-CREATE PROCEDURE GetBossByAttributeName @entity varchar(30) ,@attribute varchar(30), @name varchar(30)
+CREATE PROCEDURE GetBossByAttributeName @entity NVARCHAR(MAX),@attribute NVARCHAR(MAX), @filter NVARCHAR(MAX)
 AS
 BEGIN
 	
@@ -88,7 +88,7 @@ BEGIN
 		JOIN ds3.Localizacao ON Localizacao.Coordenadas = Localizacao_Adversario.Localizacao
 		JOIN ds3.Zona ON Zona.Nome = Localizacao.Zona
 	WHERE ' 
-		+ QUOTENAME(@attribute) + ' LIKE ''%' + QUOTENAME(@name) +'%'';';
+		+ QUOTENAME(@entity) + '.' + QUOTENAME(@attribute) + ' LIKE ''%' + @filter +'%'';';
 
 	EXEC sp_executesql @Query;
 END;
@@ -221,6 +221,36 @@ BEGIN
     DELETE FROM ds3.Localizacao WHERE Coordenadas = @PER_LOC;
 END;
 
+CREATE PROCEDURE GetJogador
+AS
+BEGIN
+	SELECT Nome FROM ds3.Saves 
+					 JOIN ds3.Jogador ON Saves.Jogador = Jogador.Personagem 
+					 JOIN ds3.Personagem ON Jogador.Personagem = Personagem.ID;
+END;
+
+CREATE PROCEDURE InsertItem
+    @ID_Item INT,
+    @Nome_Personagem VARCHAR(50)
+AS
+BEGIN
+    DECLARE @ID_Personagem INT
+    SELECT @ID_Personagem = ID FROM ds3.Personagem WHERE Nome = @Nome_Personagem
+
+    INSERT INTO ds3.Item_Personagem (Item, Personagem) 
+    VALUES (@ID_Item, @ID_Personagem)
+END;
+
+GO;
+
+CREATE PROCEDURE DeleteItem_Personagem @Item_ID INT, @Nome_Personagem varchar(50)
+AS
+BEGIN
+	DECLARE @ID_Personagem INT
+	SET @ID_Personagem = (SELECT ID FROM ds3.Personagem WHERE Personagem.Nome = @Nome_Personagem);
+	DELETE FROM ds3.Item_Personagem WHERE Item_Personagem.Item = @Item_ID AND Item_Personagem.Personagem = @ID_Personagem;
+END;
+
 -------------------------------------------------------------------------------------------------------------------------
 -- drop sp
 DROP PROCEDURE IF EXISTS GetBossInformation;
@@ -232,6 +262,9 @@ DROP PROCEDURE IF EXISTS GetAllSavesInformation
 DROP PROCEDURE IF EXISTS InsertBoss;
 DROP PROCEDURE IF EXISTS GetBossByHp;
 DROP PROCEDURE IF EXISTS GetBossByName;
+DROP PROCEDURE IF EXISTS GetJogador;
+DROP PROCEDURE IF EXISTS InsertItem;
+DROP PROCEDURE IF EXISTS DeleteItem_Personagem;
 
 
 -- exec
@@ -244,7 +277,7 @@ exec GetAllSavesInformation
 exec GetBossByName @name = 'ar'
 exec GetBossInformation
 exec GetBossByHp @hp_ini = 1, @hp_fim = 2000
-exec GetBossByAttributeName @entity = '', @attribute = 'Zona.Nome', @name = 'Ash';
+exec GetBossByAttributeName @entity = 'Zona', @attribute = 'Nome', @filter = 'Ash';
 exec GetAllBossInformation
 exec InsertBoss @Nome ='TESTE',@Pontos_De_Vida= 10000,@Drops = 'TESTE',
 @Fraqueza ='TESTE', @Resistencia ='TESTE', @Imunidade ='TESTE',
@@ -253,8 +286,15 @@ exec InsertBoss @Nome ='TESTE',@Pontos_De_Vida= 10000,@Drops = 'TESTE',
 exec InsertSave @Ultima_localizacao ='1,1,1',@Horas =2 ,@Item_Discovery = 0,@Stamina = 0,
 @Classe= 'TESTE', @Equip_Load = 0, @Focus_Points = 0, @Nivel = 0, @Nome='CABOCA',@Zona='TESTE',
 @Pontos_De_Vida = 0
+exec GetJogador;
+exec InsertItem @Nome_Personagem = 'Aim_A_Cat', @ID_Item = 34
+exec DeleteItem_Personagem @Item_ID = 1, @Nome_Personagem = 'Aim_A_Cat';
 
+SELECT * FROM ds3.Item_Personagem
 
+SELECT * FROM ds3.Item
+
+SELECT * FROM ds3.Personagem
 
 SELECT
     *

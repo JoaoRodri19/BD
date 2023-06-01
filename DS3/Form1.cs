@@ -19,6 +19,7 @@ namespace Ds3
         public Form1()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
 
             DropClass.Items.Add("Knight");
             DropClass.Items.Add("Warrior");
@@ -60,7 +61,7 @@ namespace Ds3
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex > 0)
+            if (listBox1.SelectedIndex >= 0)
             {
                 currentContact = listBox1.SelectedIndex;
                 ShowContact();
@@ -105,7 +106,7 @@ namespace Ds3
             cn.Close();
 
 
-            currentContact = 0;
+            currentContact = -1;
             ShowContact();
         }
 
@@ -363,7 +364,7 @@ namespace Ds3
             {
                 currentContact = listBox1.SelectedIndex;
                 if (currentContact < 0)
-                    currentContact = 0;
+                    currentContact = -1;
                 ShowContact();
             }
             else
@@ -376,7 +377,7 @@ namespace Ds3
 
         private void bttnDelete_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex > -1)
+            if (listBox1.SelectedIndex >= 0)
             {
                 try
                 {
@@ -442,7 +443,7 @@ namespace Ds3
             {
                 currentContact = listBox1.SelectedIndex;
                 if (currentContact < 0)
-                    currentContact = 0;
+                    currentContact = -1;
                 ShowContact();
             }
             else
@@ -455,7 +456,7 @@ namespace Ds3
 
         private void bttnDelete_Click_1(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex > -1)
+            if (listBox1.SelectedIndex >= 0)
             {
                 try
                 {

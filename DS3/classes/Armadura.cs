@@ -25,9 +25,9 @@ namespace Ds3
             get { return _Item_Equipavel; }
             set { _Item_Equipavel = value; }
         }
-        public String toString()
+        public override string ToString()
         {
-            return "";
+            return "ID: "+this._Item_Equipavel + ";Nome: "+this.Nome +";Defesa: "+this.Defesa;
         }
 
         public Armadura() : base()

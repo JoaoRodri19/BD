@@ -25,9 +25,9 @@ namespace Ds3
             get { return _Item; }
             set { _Item = value; }
         }
-        public String toString()
+        public override string ToString()
         {
-            return "";
+            return "ID: " + this._Item + ";Nome: " + this.Nome + ";Quantidade: " + this.Quantidade;
         }
 
         public Item_Nao_Equipavel() : base()

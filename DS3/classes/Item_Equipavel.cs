@@ -32,10 +32,6 @@ namespace Ds3
             get { return _Item; }
             set { _Item = value; }
         }
-        public String toString()
-        {
-            return "";
-        }
 
         public Item_Equipavel() : base()
         {
@@ -46,6 +42,10 @@ namespace Ds3
             this.Nome = item.Nome;
             this.ID = item.ID;
             this.Tipo = item.Tipo;
+        }
+        public override string ToString()
+        {
+            return "";
         }
 
         public Item_Equipavel(String Peso, String Durabilidade, String Item) : base()
