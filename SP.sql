@@ -15,8 +15,7 @@ BEGIN
     JOIN ds3.Zona ON Zona.Nome = Localizacao.Zona;
 END;
 GO
---------------------------------------------------------------------------------------------------------
--- all info
+---------------------------------------------------------------------------------------------------------- 
 CREATE PROCEDURE GetAllBossInformation
 AS
 BEGIN
@@ -49,24 +48,6 @@ SELECT
     where Pontos_De_Vida > @hp_ini and Pontos_De_Vida < @hp_fim
 END;
 GO
----------------------------------------------------------------------------------------------
-CREATE PROCEDURE GetBossByName @name varchar(30)
-AS
-BEGIN
-SELECT
-    Personagem.nome AS "Boss Name",
-    Pontos_De_Vida AS "HP",
-    Zona.nome AS "Zona"
-  FROM
-    ds3.Boss
-    JOIN ds3.Adversario ON Boss.Adversario = Adversario.Personagem
-    JOIN ds3.Personagem ON ID = Adversario.Personagem
-    JOIN ds3.Localizacao_Adversario ON Adversario.Personagem = Localizacao_Adversario.Adversario
-    JOIN ds3.Localizacao ON Localizacao.Coordenadas = Localizacao_Adversario.Localizacao
-    JOIN ds3.Zona ON Zona.Nome = Localizacao.Zona
-    where Personagem.Nome LIKE '%'+ @name+'%'
-END;
-GO
 ----------------------------------------------------------------------------------------------------------------------------
 CREATE PROCEDURE GetBossByAttributeName @entity NVARCHAR(MAX),@attribute NVARCHAR(MAX), @filter NVARCHAR(MAX)
 AS
@@ -93,24 +74,6 @@ BEGIN
 	EXEC sp_executesql @Query;
 END;
 
-GO
------------------------------------------------------------------------------------------------------------------------
-CREATE PROCEDURE GetBossByName @name varchar(30)
-AS
-BEGIN
-SELECT
-    Personagem.nome AS "Boss Name",
-    Pontos_De_Vida AS "HP",
-    Zona.nome AS "Zona"
-  FROM
-    ds3.Boss
-    JOIN ds3.Adversario ON Boss.Adversario = Adversario.Personagem
-    JOIN ds3.Personagem ON ID = Adversario.Personagem
-    JOIN ds3.Localizacao_Adversario ON Adversario.Personagem = Localizacao_Adversario.Adversario
-    JOIN ds3.Localizacao ON Localizacao.Coordenadas = Localizacao_Adversario.Localizacao
-    JOIN ds3.Zona ON Zona.Nome = Localizacao.Zona
-	where Personagem.Nome LIKE '%'+ @name+'%'
-END;
 GO
 -------------------------------------------------------------------------------------------------------------------------------------------------
 CREATE PROCEDURE InsertBoss @Nome varchar(50),@Pontos_De_Vida int,@Drops varchar(30),
@@ -204,6 +167,7 @@ BEGIN
     DELETE ds3.Item_Personagem WHERE Personagem=@ID;
     DELETE ds3.Personagem WHERE ID=@ID;
 END;
+GO;
 --------------------------------------------------------------------------------------------------------------------
 CREATE PROCEDURE DeleteSave @ID int
 AS
@@ -220,7 +184,8 @@ BEGIN
     DELETE FROM ds3.Personagem WHERE Personagem = @PER_ID;
     DELETE FROM ds3.Localizacao WHERE Coordenadas = @PER_LOC;
 END;
-
+GO;
+--------------------------------------------------------------------------------------------------------------------
 CREATE PROCEDURE GetJogador
 AS
 BEGIN
@@ -228,7 +193,8 @@ BEGIN
 					 JOIN ds3.Jogador ON Saves.Jogador = Jogador.Personagem 
 					 JOIN ds3.Personagem ON Jogador.Personagem = Personagem.ID;
 END;
-
+GO;
+--------------------------------------------------------------------------------------------------------------------
 CREATE PROCEDURE InsertItem
     @ID_Item INT,
     @Nome_Personagem VARCHAR(50)
@@ -250,9 +216,9 @@ BEGIN
 	SET @ID_Personagem = (SELECT ID FROM ds3.Personagem WHERE Personagem.Nome = @Nome_Personagem);
 	DELETE FROM ds3.Item_Personagem WHERE Item_Personagem.Item = @Item_ID AND Item_Personagem.Personagem = @ID_Personagem;
 END;
+GO;
 
--------------------------------------------------------------------------------------------------------------------------
--- drop sp
+----------------------------------------------------------DROPS----------------------------------------------------------
 DROP PROCEDURE IF EXISTS GetBossInformation;
 DROP PROCEDURE IF EXISTS GetAllBossInformation;
 DROP PROCEDURE IF EXISTS GetBossByHp;
@@ -261,20 +227,13 @@ DROP PROCEDURE IF EXISTS GetBossByAttributeName;
 DROP PROCEDURE IF EXISTS GetAllSavesInformation
 DROP PROCEDURE IF EXISTS InsertBoss;
 DROP PROCEDURE IF EXISTS GetBossByHp;
-DROP PROCEDURE IF EXISTS GetBossByName;
 DROP PROCEDURE IF EXISTS GetJogador;
 DROP PROCEDURE IF EXISTS InsertItem;
 DROP PROCEDURE IF EXISTS DeleteItem_Personagem;
 
-
--- exec
-exec GetBossByName @name = 'ar'
-
-
-
--- exec
+GO;
+---------------------------------------------------------EXECS-------------------------------------------------------------
 exec GetAllSavesInformation
-exec GetBossByName @name = 'ar'
 exec GetBossInformation
 exec GetBossByHp @hp_ini = 1, @hp_fim = 2000
 exec GetBossByAttributeName @entity = 'Zona', @attribute = 'Nome', @filter = 'Ash';
@@ -290,6 +249,8 @@ exec GetJogador;
 exec InsertItem @Nome_Personagem = 'Aim_A_Cat', @ID_Item = 34
 exec DeleteItem_Personagem @Item_ID = 1, @Nome_Personagem = 'Aim_A_Cat';
 
+GO;
+----------------------------------------------------QUERIES PARA TESTES------------------------------------------------------------------
 SELECT * FROM ds3.Item_Personagem
 
 SELECT * FROM ds3.Item

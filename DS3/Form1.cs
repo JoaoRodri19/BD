@@ -214,7 +214,6 @@ namespace Ds3
             LockControls();
             bttnAdd.Visible = true;
             bttnDelete.Visible = true;
-            bttnEdit.Visible = true;
             bttnOK.Visible = false;
             bttnCancel.Visible = false;
             DropClass.Visible = false;
@@ -259,7 +258,6 @@ namespace Ds3
             UnlockControls();
             bttnAdd.Visible = false;
             bttnDelete.Visible = false;
-            bttnEdit.Visible = false;
             bttnOK.Visible = true;
             bttnCancel.Visible = true;
             DropClass.Visible = true;
@@ -488,5 +486,6 @@ namespace Ds3
             x.Show();
             this.Hide();
         }
+
     }
 }

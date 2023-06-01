@@ -47,7 +47,7 @@
             this.btSaves.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btSaves.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btSaves.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSaves.Location = new System.Drawing.Point(1299, 607);
+            this.btSaves.Location = new System.Drawing.Point(1299, 388);
             this.btSaves.Name = "btSaves";
             this.btSaves.Size = new System.Drawing.Size(217, 89);
             this.btSaves.TabIndex = 0;
@@ -60,7 +60,7 @@
             this.btBosses.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btBosses.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btBosses.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btBosses.Location = new System.Drawing.Point(1299, 377);
+            this.btBosses.Location = new System.Drawing.Point(1299, 607);
             this.btBosses.Name = "btBosses";
             this.btBosses.Size = new System.Drawing.Size(217, 86);
             this.btBosses.TabIndex = 1;
@@ -72,9 +72,10 @@
             // 
             this.DropJogador.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.DropJogador.FormattingEnabled = true;
-            this.DropJogador.Location = new System.Drawing.Point(1321, 72);
+            this.DropJogador.ItemHeight = 16;
+            this.DropJogador.Location = new System.Drawing.Point(1299, 100);
             this.DropJogador.Name = "DropJogador";
-            this.DropJogador.Size = new System.Drawing.Size(195, 24);
+            this.DropJogador.Size = new System.Drawing.Size(193, 24);
             this.DropJogador.TabIndex = 2;
             this.DropJogador.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -94,7 +95,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Navy;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.todos);
@@ -119,7 +120,7 @@
             this.todos.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.todos.Font = new System.Drawing.Font("Verdana", 40F);
             this.todos.ForeColor = System.Drawing.Color.Snow;
-            this.todos.Location = new System.Drawing.Point(447, 607);
+            this.todos.Location = new System.Drawing.Point(462, 607);
             this.todos.Margin = new System.Windows.Forms.Padding(4, 1, 4, 4);
             this.todos.Name = "todos";
             this.todos.Size = new System.Drawing.Size(542, 112);
@@ -144,12 +145,13 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.Font = new System.Drawing.Font("Verdana", 40F);
             this.label2.ForeColor = System.Drawing.Color.Snow;
-            this.label2.Location = new System.Drawing.Point(447, 156);
+            this.label2.Location = new System.Drawing.Point(462, 156);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 1, 4, 4);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(634, 112);
+            this.label2.Size = new System.Drawing.Size(607, 112);
             this.label2.TabIndex = 207;
             this.label2.Text = "Editar Inventário";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Form2
             // 
@@ -158,7 +160,7 @@
             this.ClientSize = new System.Drawing.Size(1751, 798);
             this.Controls.Add(this.panel1);
             this.Name = "Form2";
-            this.Text = "MENU";
+            this.Text = "Saves";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

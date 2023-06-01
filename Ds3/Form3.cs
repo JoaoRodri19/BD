@@ -264,6 +264,7 @@ namespace Ds3
             txtDialogo.Text = boss.boss.Dialogo;
             txtDrops.Text = boss.boss.Drops;
             txtTrilha.Text = boss.boss.Trilha_Sonora;
+            txtID.Text = boss.boss.ID;
 
         }
 
@@ -458,6 +459,9 @@ namespace Ds3
             int idx = listBox1.FindString(txtNome.Text);
             listBox1.SelectedIndex = idx;
             ShowButtons();
+            txtFiltrar.ReadOnly = false;
+            txtHP1.ReadOnly = false;
+            txtHP2.ReadOnly = false;
         }
 
         private void bttnCancel_Click_1(object sender, EventArgs e)
@@ -476,6 +480,9 @@ namespace Ds3
                 LockControls();
             }
             ShowButtons();
+            txtFiltrar.ReadOnly = false;
+            txtHP1.ReadOnly = false;
+            txtHP2.ReadOnly = false;
         }
 
         private void bttnEdit_Click_1(object sender, EventArgs e)

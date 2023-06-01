@@ -27,7 +27,7 @@ namespace Ds3
         }
         public override string ToString()
         {
-            return "ID: " + this._Item + ";Nome: " + this.Nome + ";Quantidade: " + this.Quantidade;
+            return "ID: " + this._Item + ";Nome: " + this.Nome;
         }
 
         public Item_Nao_Equipavel() : base()
