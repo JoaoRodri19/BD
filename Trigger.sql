@@ -41,7 +41,7 @@ BEGIN
 	SELECT @num = COUNT(*) FROM Ds3.Saves;
 	IF (@num > 7)
 	BEGIN
-		RAISERROR('Excedeu o limite de saves', 16, 1);
+		RAISERROR('Save limit exceeded', 16, 1);
 		ROLLBACK TRAN;
 	END
 END;

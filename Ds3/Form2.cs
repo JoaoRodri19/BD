@@ -14,12 +14,14 @@ namespace Ds3
     public partial class Form2 : Form
     {
         private SqlConnection cn;
-
+        string selectedItem = "";
         public Form2()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
             getJogador();
             DropJogador.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            this.selectedItem = DropJogador.Items[0].ToString();
         }
         private SqlConnection getSGBDConnection()
         {
@@ -47,7 +49,7 @@ namespace Ds3
             if (!verifySGBDConnection())
                 return;
 
-            SqlCommand cmd = new SqlCommand("exec GetAllBossInformation", cn);
+            SqlCommand cmd = new SqlCommand("exec GetJogador", cn);
             SqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
@@ -78,14 +80,28 @@ namespace Ds3
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedItem = DropJogador.SelectedItem.ToString();
+            this.selectedItem = DropJogador.SelectedItem.ToString();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Form4 x = new Form4(DropJogador.SelectedItem.ToString());
+            
+            Form4 x = new Form4(this.selectedItem);
             x.Show();
             this.Hide();
+
+           
+            
+        }
+
+        private void todos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -22,6 +22,7 @@ namespace Ds3
         public Form3()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
             UnlockControls();
             DropBoss.Items.Add("Nome");
             DropBoss.Items.Add("Imunidade");
@@ -29,6 +30,7 @@ namespace Ds3
             DropBoss.Items.Add("Resistência");
             DropBoss.Items.Add("Drops");
             DropBoss.Items.Add("Zona");
+            DropBoss.Items.Add("");
 
             DropBoss.SelectedIndexChanged += DropBoss_SelectedIndexChanged;
         }
@@ -65,7 +67,7 @@ namespace Ds3
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex > 0)
+            if (listBox1.SelectedIndex >= 0)
             {
                 currentContact = listBox1.SelectedIndex;
                 ShowContact();
@@ -111,7 +113,7 @@ namespace Ds3
             cn.Close();
 
 
-            currentContact = 0;
+            currentContact = -1;
             ShowContact();
         }
 
@@ -262,6 +264,7 @@ namespace Ds3
             txtDialogo.Text = boss.boss.Dialogo;
             txtDrops.Text = boss.boss.Drops;
             txtTrilha.Text = boss.boss.Trilha_Sonora;
+            txtID.Text = boss.boss.ID;
 
         }
 
@@ -338,7 +341,7 @@ namespace Ds3
             String textFilter = txtFiltrar.Text;
             SqlCommand cmd = null;
 
-            if (DropBoss.SelectedItem != null)
+            if (DropBoss.SelectedItem != null && Regex.IsMatch(textFilter, @"^[a-zA-Z]+$"))
             {
                 switch (DropBoss.SelectedItem)
                 {
@@ -378,7 +381,7 @@ namespace Ds3
                         break;
                 }
 
-                cmd = new SqlCommand("exec GetBossByAttributeName @entity = " + entity + ", @attribute = " + attribute + ", @filter = " + textFilter + ";", cn);
+                cmd = new SqlCommand("exec GetBossByAttributeName @entity = " + entity + ", @attribute = " + attribute + ", @filter = " + textFilter, cn);
             }
             else
             {
@@ -398,6 +401,8 @@ namespace Ds3
             }
             Console.Write(cmd.ToString());
             SqlDataReader reader = cmd.ExecuteReader();
+           
+            
             listBox1.Items.Clear();
 
             while (reader.Read())
@@ -417,7 +422,7 @@ namespace Ds3
             cn.Close();
 
 
-            currentContact = 0;
+            currentContact = -1;
             ShowContact();
 
         }
@@ -454,6 +459,9 @@ namespace Ds3
             int idx = listBox1.FindString(txtNome.Text);
             listBox1.SelectedIndex = idx;
             ShowButtons();
+            txtFiltrar.ReadOnly = false;
+            txtHP1.ReadOnly = false;
+            txtHP2.ReadOnly = false;
         }
 
         private void bttnCancel_Click_1(object sender, EventArgs e)
@@ -463,7 +471,7 @@ namespace Ds3
             {
                 currentContact = listBox1.SelectedIndex;
                 if (currentContact < 0)
-                    currentContact = 0;
+                    currentContact = -1;
                 ShowContact();
             }
             else
@@ -472,12 +480,15 @@ namespace Ds3
                 LockControls();
             }
             ShowButtons();
+            txtFiltrar.ReadOnly = false;
+            txtHP1.ReadOnly = false;
+            txtHP2.ReadOnly = false;
         }
 
         private void bttnEdit_Click_1(object sender, EventArgs e)
         {
             currentContact = listBox1.SelectedIndex;
-            if (currentContact <= 0)
+            if (currentContact < 0)
             {
                 MessageBox.Show("Please select a contact to edit");
                 return;
@@ -489,7 +500,7 @@ namespace Ds3
 
         private void bttnDelete_Click_1(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex > -1)
+            if (listBox1.SelectedIndex >= 0)
             {
                 try
                 {

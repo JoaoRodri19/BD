@@ -32,13 +32,13 @@ namespace Ds3
             get { return _ID; }
             set { _ID = value; }
         }
-        public String toString()
-        {
-            return "";
-        }
 
         public Item() : base()
         {
+        }
+        public override string ToString()
+        {
+            return "";
         }
 
         public Item(String Nome, String Tipo, String ID) : base()

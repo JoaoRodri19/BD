@@ -14,23 +14,23 @@ namespace Ds3
     public partial class Form4 : Form
     {
         private SqlConnection cn;
-        private int currentContact;
+        private int current1;
+        private int current2;
+        private int current3;
         private bool adding;
         private List<Boss> bosses;
         private List<Localizacao> zonas;
+        private String _jogador;
 
         public Form4(String jogador)
         {
             InitializeComponent();
-            UnlockControls();
-            DropBoss.Items.Add("Nome");
-            DropBoss.Items.Add("Imunidade");
-            DropBoss.Items.Add("Fraqueza");
-            DropBoss.Items.Add("Resistência");
-            DropBoss.Items.Add("Drops");
-            DropBoss.Items.Add("Zona");
-
-            DropBoss.SelectedIndexChanged += DropBoss_SelectedIndexChanged;
+            this.WindowState = FormWindowState.Maximized;
+            //this.Resize += Form1_Resize;
+            LockControls();
+            todos.Hide();
+            this._jogador = jogador;
+            
         }
 
         private void DropBoss_SelectedIndexChanged(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace Ds3
         {
             if (listBox1.SelectedIndex > 0)
             {
-                currentContact = listBox1.SelectedIndex;
+                current1 = listBox1.SelectedIndex;
                 ShowContact();
             }
         }
@@ -77,63 +77,163 @@ namespace Ds3
             if (!verifySGBDConnection())
                 return;
 
-            SqlCommand cmd = new SqlCommand("exec GetAllBossInformation", cn);
+            SqlCommand cmd = new SqlCommand("exec GetArmaduraByName @Nome", cn);
+            cmd.Parameters.AddWithValue("@Nome", this._jogador);
             SqlDataReader reader = cmd.ExecuteReader();
-            listBox1.Items.Clear();
+            listBox2.Items.Clear();
 
             while (reader.Read())
             {
 
-                BossInfo S = new BossInfo();
-                Boss boss = new Boss();
-                Localizacao zona = new Localizacao();
-                boss.Trilha_Sonora = reader.GetString(0);
-                boss.Dialogo = reader.IsDBNull(1) ? null : (reader.GetString(1));
-                boss.Adversario = reader.GetInt32(2).ToString();
-                boss.Drops = reader.IsDBNull(3) ? null : (reader.GetString(3));
-                boss.Fraqueza = reader.IsDBNull(4) ? null : (reader.GetString(4));
-                boss.Resistencia = reader.IsDBNull(5) ? null : (reader.GetString(5));
-                boss.Imunidade = reader.IsDBNull(6) ? null : (reader.GetString(6));
-                boss.Personagem = reader.GetInt32(7).ToString();
-                boss.Nome = reader.IsDBNull(8) ? null : (reader.GetString(8));
-                boss.Pontos_De_Vida = reader.IsDBNull(9) ? null : (reader.GetInt32(9).ToString());
-                boss.ID = reader.GetInt32(10).ToString();
-                zona.Coordenadas = reader.IsDBNull(12) ? null : (reader.GetString(12));
-                zona.Item = reader.IsDBNull(13) ? null : (reader.GetInt32(13).ToString());
-                zona.Zona = reader.IsDBNull(14) ? null : (reader.GetString(14));
+                Armadura armadura = new Armadura();
+                armadura.Defesa = reader.GetInt32(0).ToString();
+                armadura.Item_Equipavel = reader.GetInt32(1).ToString();
+                armadura.Peso = reader.GetDouble(2).ToString();
+                armadura.Durabilidade = reader.GetInt32(3).ToString();
+                armadura.Nome = reader.GetString(5);
+                armadura.Tipo = reader.GetString(6);
+                armadura.ID = reader.GetInt32(7).ToString();
 
-                ListBoss list_boss = new ListBoss(boss, zona);
-
-
-                listBox1.Items.Add(list_boss);
+                listBox2.Items.Add(armadura);
             }
+            reader.Close();
+
+            cmd = new SqlCommand("exec GetArmaByName @Nome", cn);
+            cmd.Parameters.AddWithValue("@Nome", this._jogador);
+            SqlDataReader reader1 = cmd.ExecuteReader();
+            listBox1.Items.Clear();
+
+            while (reader1.Read())
+            {
+                
+                Arma arma = new Arma();
+                arma.Dano = reader1.GetInt32(0).ToString();
+                arma.Item_Equipavel = reader1.GetInt32(1).ToString();
+                arma.Peso = reader1.GetDouble(2).ToString();
+                arma.Durabilidade = reader1.GetInt32(3).ToString();
+                arma.Nome = reader1.GetString(5);
+                arma.Tipo = reader1.GetString(6);
+                arma.ID = reader1.GetInt32(7).ToString();
+
+                listBox1.Items.Add(arma);
+            }
+            reader1.Close();
+
+            cmd = new SqlCommand("exec GetItemNaoEquipavelByName @Nome", cn);
+            cmd.Parameters.AddWithValue("@Nome", this._jogador);
+            SqlDataReader reader2 = cmd.ExecuteReader();
+            listBox3.Items.Clear();
+
+            while (reader2.Read())
+            {
+
+                Item_Nao_Equipavel ine = new Item_Nao_Equipavel();
+                ine.Quantidade = reader2.GetByte(0).ToString();
+                ine.Item = reader2.GetInt32(1).ToString();
+                ine.Nome = reader2.GetString(2);
+                ine.Tipo = reader2.GetString(3);
+                
+
+                listBox3.Items.Add(ine);
+            }
+
+
 
             cn.Close();
 
 
-            currentContact = 0;
+            current1 = -1;
+            current2 = -1;
+            current3 = -1;
             ShowContact();
         }
 
-        private void SubmitContact(ListBoss Boss)
+        private void loadCustomersToolStripMenuItem_ClickV2(object sender, EventArgs e)
+        {
+            if (!verifySGBDConnection())
+                return;
+
+            SqlCommand cmd = new SqlCommand("exec GetArmadura", cn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            listBox2.Items.Clear();
+
+            while (reader.Read())
+            {
+
+                Armadura armadura = new Armadura();
+                armadura.Defesa = reader.GetInt32(0).ToString();
+                armadura.Item_Equipavel = reader.GetInt32(1).ToString();
+                armadura.Peso = reader.GetDouble(2).ToString();
+                armadura.Durabilidade = reader.GetInt32(3).ToString();
+                armadura.Nome = reader.GetString(5);
+                armadura.Tipo = reader.GetString(6);
+                armadura.ID = reader.GetInt32(7).ToString();
+
+                listBox2.Items.Add(armadura);
+            }
+            reader.Close();
+
+            cmd = new SqlCommand("exec GetArma", cn);
+            SqlDataReader reader1 = cmd.ExecuteReader();
+            listBox1.Items.Clear();
+
+            while (reader1.Read())
+            {
+
+                Arma arma = new Arma();
+                arma.Dano = reader1.GetInt32(0).ToString();
+                arma.Item_Equipavel = reader1.GetInt32(1).ToString();
+                arma.Peso = reader1.GetDouble(2).ToString();
+                arma.Durabilidade = reader1.GetInt32(3).ToString();
+                arma.Nome = reader1.GetString(5);
+                arma.Tipo = reader1.GetString(6);
+                arma.ID = reader1.GetInt32(7).ToString();
+
+                listBox1.Items.Add(arma);
+            }
+            reader1.Close();
+
+            cmd = new SqlCommand("exec GetItemNaoEquipavel", cn);
+            SqlDataReader reader2 = cmd.ExecuteReader();
+            listBox3.Items.Clear();
+
+            while (reader2.Read())
+            {
+
+                Item_Nao_Equipavel ine = new Item_Nao_Equipavel();
+                ine.Quantidade = reader2.GetByte(0).ToString();
+                ine.Item = reader2.GetInt32(1).ToString();
+                ine.Nome = reader2.GetString(2);
+                ine.Tipo = reader2.GetString(3);
+
+
+                listBox3.Items.Add(ine);
+            }
+
+
+
+            cn.Close();
+
+
+            current1 = -1;
+            current2 = -1;
+            current3 = -1;
+            ShowContact();
+        }
+
+        private void SubmitContact(Item item)
         {
 
             if (!verifySGBDConnection())
                 return;
             SqlCommand cmd = new SqlCommand();
 
-            cmd.CommandText = "exec InsertBoss @Nome,@Pontos_De_Vida,@Drops,@Fraqueza,@Resistencia,@Imunidade,@Trilha_Sonora,@Dialogo,@Nome_Zona,@Coordenadas";
+            cmd.CommandText = "exec InsertItem @Nome_Personagem = \'"+ this._jogador + "\', @ID_Item = "+ item.ID;
             cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@Nome", Boss.boss.Nome);
-            cmd.Parameters.AddWithValue("@Pontos_De_Vida", Boss.boss.Pontos_De_Vida);
-            cmd.Parameters.AddWithValue("@Drops", Boss.boss.Drops);
-            cmd.Parameters.AddWithValue("@Fraqueza", Boss.boss.Fraqueza);
-            cmd.Parameters.AddWithValue("@Resistencia", Boss.boss.Resistencia);
-            cmd.Parameters.AddWithValue("@Imunidade", Boss.boss.Imunidade);
-            cmd.Parameters.AddWithValue("@Trilha_Sonora", Boss.boss.Trilha_Sonora);
-            cmd.Parameters.AddWithValue("@Dialogo", Boss.boss.Dialogo);
-            cmd.Parameters.AddWithValue("@Nome_Zona", Boss.loc.Zona);
-            cmd.Parameters.AddWithValue("@Coordenadas", Boss.loc.Coordenadas);
+            //cmd.Parameters.Add("@Nome_Personagem", SqlDbType.NVarChar).Value = this._jogador;
+            //cmd.Parameters.Add("@ID_Item", SqlDbType.Int).Value = int.Parse(item.ID);
+
+
             cmd.Connection = cn;
 
             try
@@ -158,15 +258,16 @@ namespace Ds3
         }
 
 
-        private void RemoveContact(String ID)
+        private void RemoveContact(String Item_ID)
         {
             if (!verifySGBDConnection())
                 return;
             SqlCommand cmd = new SqlCommand();
 
             cmd.Parameters.Clear();
-            cmd.CommandText = "exec DeleteBoss @ID";
-            cmd.Parameters.AddWithValue("@ID", ID);
+            cmd.CommandText = "exec DeleteItem_Personagem @Item_ID, @Nome_Personagem";
+            cmd.Parameters.AddWithValue("@Item_ID", Item_ID);
+            cmd.Parameters.AddWithValue("@Nome_Personagem", this._jogador);
             cmd.Connection = cn;
 
             try
@@ -187,28 +288,26 @@ namespace Ds3
         // Helper routines
         public void LockControls()
         {
+            txtDurabilidade.ReadOnly = true;
+            txtID.ReadOnly = true;
             txtNome.ReadOnly = true;
-            txtHP.ReadOnly = true;
-            txtImunidade.ReadOnly = true;
-            txtResistencia.ReadOnly = true;
-            txtDrops.ReadOnly = true;
-            txtFraqueza.ReadOnly = true;
-            txtFiltrar.ReadOnly = true;
-            txtHP1.ReadOnly = true;
-            txtHP2.ReadOnly = true;
+            txtTipo.ReadOnly = true;
+            txtPeso.ReadOnly = true;
+            txtDano.ReadOnly = true;
+            txtDefesa.ReadOnly = true;
+            txtQuantidade.ReadOnly = true;
         }
 
         public void UnlockControls()
         {
+            txtDurabilidade.ReadOnly = false;
+            txtID.ReadOnly = false;
             txtNome.ReadOnly = false;
-            txtHP.ReadOnly = false;
-            txtImunidade.ReadOnly = false;
-            txtResistencia.ReadOnly = false;
-            txtDrops.ReadOnly = false;
-            txtFraqueza.ReadOnly = false;
-            txtFiltrar.ReadOnly = false;
-            txtHP1.ReadOnly = false;
-            txtHP2.ReadOnly = false;
+            txtTipo.ReadOnly = false;
+            txtPeso.ReadOnly = false;
+            txtDano.ReadOnly = false;
+            txtDefesa.ReadOnly = false;
+            txtQuantidade.ReadOnly = false;
         }
 
         public void ShowButtons()
@@ -216,7 +315,6 @@ namespace Ds3
             LockControls();
             bttnAdd.Visible = true;
             bttnDelete.Visible = true;
-            bttnEdit.Visible = true;
             bttnOK.Visible = false;
             bttnCancel.Visible = false;
         }
@@ -224,49 +322,74 @@ namespace Ds3
         public void ClearFields()
         {
             txtNome.Text = "";
-            txtHP.Text = "";
-            txtImunidade.Text = "";
-            txtResistencia.Text = "";
-            txtDrops.Text = "";
-            txtFraqueza.Text = "";
-            txtFiltrar.Text = "";
-            txtHP1.Text = "";
-            txtHP2.Text = "";
+            txtTipo.Text = "";
+            txtPeso.Text = "";
+            txtDano.Text = "";
+            txtDefesa.Text = "";
+            txtQuantidade.Text = "";
+            txtDurabilidade.Text = "";
+            txtID.Text = "";
         }
 
         public void ShowContact()
         {
-            if (listBox1.Items.Count == 0 | currentContact < 0)
-                return;
-            ListBoss boss = new ListBoss();
-            boss = (ListBoss)listBox1.Items[currentContact];
-            txtNome.Text = boss.boss.Nome;
+                if (current1 >= 0)
+            {
+                Arma arma = new Arma();
+                arma = (Arma)listBox1.Items[current1];
+                txtNome.Text = arma.Nome;
+                txtTipo.Text = arma.Tipo;
+                txtDano.Text = arma.Dano;
+                txtPeso.Text = arma.Peso;
+                txtDurabilidade.Text = arma.Durabilidade;
+                txtID.Text = arma.ID;
+                txtDefesa.Text = "";
+            }
+            else if (current2 >= 0)
+            {
+                Armadura armadura = new Armadura();
+                armadura = (Armadura)listBox2.Items[current2];
+                txtNome.Text = armadura.Nome;
+                txtTipo.Text = armadura.Tipo;
+                txtID.Text = armadura.ID;
+                txtDurabilidade.Text = armadura.Durabilidade;
+                txtDefesa.Text = armadura.Defesa;
+                txtPeso.Text = armadura.Peso;
+                txtDano.Text = "";
+            }
+            else if (current3 >= 0)
+            {
+                Item_Nao_Equipavel ine = new Item_Nao_Equipavel();
+                ine = (Item_Nao_Equipavel)listBox3.Items[current3];
+                txtNome.Text = ine.Nome;
+                txtTipo.Text = ine.Tipo;
+                txtID.Text = ine.Item;
+                txtQuantidade.Text = ine.Quantidade;
+                txtDefesa.Text = "";
+                txtDano.Text = "";
+                txtPeso.Text = "";
+            }
+                
           
 
         }
 
         public void HideButtons()
         {
-            UnlockControls();
             bttnAdd.Visible = false;
             bttnDelete.Visible = false;
-            bttnEdit.Visible = false;
             bttnOK.Visible = true;
             bttnCancel.Visible = true;
         }
 
-        private bool SaveContact()
+        private bool SaveContact(Object sender, EventArgs e)
         {
-            ListBoss boss = new ListBoss
-            {
-                boss = new Boss(),
-                loc = new Localizacao()
-            };
+            Item item = new Item();
+            
             try
             {
-                boss.boss.Nome = txtNome.Text;
-                boss.boss.Pontos_De_Vida = txtHP.Text;
-               
+                item.ID = txtID.Text;
+
             }
             catch (Exception ex)
             {
@@ -275,14 +398,10 @@ namespace Ds3
             }
             if (adding)
             {
-                SubmitContact(boss);
-                listBox1.Items.Add(boss);
+                SubmitContact(item);
+                loadCustomersToolStripMenuItem_Click(sender,e);
             }
-            else
-            {
-                //UpdateContact(boss);
-                listBox1.Items[currentContact] = boss;
-            }
+            
             return true;
         }
 
@@ -391,7 +510,9 @@ namespace Ds3
             cn.Close();
 
 
-            currentContact = 0;
+            current1 = -1;
+            current2 = -1;
+            current3 = -1;
             ShowContact();
 
         }
@@ -406,68 +527,78 @@ namespace Ds3
             loadCustomersToolStripMenuItem_Click(sender, e);
         }
 
-        private void bttnAdd_Click_1(object sender, EventArgs e)
+        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            adding = true;
-            //ClearFields();
-            HideButtons();
-            listBox1.Enabled = false;
+            Form2 x = new Form2();
+            x.Show();
+            this.Hide();
         }
 
-        private void bttnOK_Click_1(object sender, EventArgs e)
+        private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            try
+            if (listBox1.SelectedIndex >= 0)
             {
-                SaveContact();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            listBox1.Enabled = true;
-            int idx = listBox1.FindString(txtNome.Text);
-            listBox1.SelectedIndex = idx;
-            ShowButtons();
-        }
-
-        private void bttnCancel_Click_1(object sender, EventArgs e)
-        {
-            listBox1.Enabled = true;
-            if (listBox1.Items.Count > 0)
-            {
-                currentContact = listBox1.SelectedIndex;
-                if (currentContact < 0)
-                    currentContact = 0;
+                current1 = listBox1.SelectedIndex;
                 ShowContact();
+                listBox2.ClearSelected();
+                listBox3.ClearSelected();
+                current2 = -1;
+                current3 = -1;
             }
-            else
-            {
-                ClearFields();
-                LockControls();
-            }
-            ShowButtons();
+
         }
 
-        private void bttnEdit_Click_1(object sender, EventArgs e)
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            currentContact = listBox1.SelectedIndex;
-            if (currentContact <= 0)
+            if (listBox2.SelectedIndex >= 0)
             {
-                MessageBox.Show("Please select a contact to edit");
-                return;
+                current2 = listBox2.SelectedIndex;
+                ShowContact();
+                listBox1.ClearSelected();
+                listBox3.ClearSelected();
+                current1 = -1;
+                current3 = -1;
             }
-            adding = false;
-            HideButtons();
-            listBox1.Enabled = false;
         }
 
-        private void bttnDelete_Click_1(object sender, EventArgs e)
+        private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBox3.SelectedIndex >= 0)
+            {
+                current3 = listBox3.SelectedIndex;
+                ShowContact();
+                listBox1.ClearSelected();
+                listBox2.ClearSelected();
+                current1 = -1;
+                current2 = -1;
+            }
+        }
+
+        private void menuToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Form2 x = new Form2();
+            x.Show();
+            this.Hide();
+        }
+
+        private void bttnAdd_Click(object sender, EventArgs e)
+        {
+            loadCustomersToolStripMenuItem_ClickV2(sender, e);
+            inv.Hide();
+            todos.Show();
+            LockControls();
+            ClearFields();
+            adding = true;
+            HideButtons();
+        }
+
+        private void bttnDelete_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex > -1)
             {
                 try
                 {
-                    RemoveContact(((ListBoss)listBox1.SelectedItem).boss.ID);
+                    RemoveContact(((Arma)listBox1.SelectedItem).ID);
                 }
                 catch (Exception ex)
                 {
@@ -475,26 +606,90 @@ namespace Ds3
                     return;
                 }
                 listBox1.Items.RemoveAt(listBox1.SelectedIndex);
-                if (currentContact == listBox1.Items.Count)
-                    currentContact = listBox1.Items.Count - 1;
-                if (currentContact == -1)
+                if (current1 == listBox1.Items.Count)
+                    current1 = listBox1.Items.Count - 1;
+                if (current1 == -1)
                 {
                     ClearFields();
                     MessageBox.Show("There are no more contacts");
                 }
-                else
+
+            }
+            else if(listBox2.SelectedIndex > -1)
+            {
+                try
                 {
-                    ShowContact();
+                    RemoveContact(((Armadura)listBox2.SelectedItem).ID);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+                listBox2.Items.RemoveAt(listBox2.SelectedIndex);
+                if (current2 == listBox2.Items.Count)
+                    current2 = listBox2.Items.Count - 1;
+                if (current2 == -1)
+                {
+                    ClearFields();
+                    MessageBox.Show("There are no more contacts");
                 }
 
             }
+            else if (listBox3.SelectedIndex > -1)
+            {
+                try
+                {
+                    RemoveContact(((Item_Nao_Equipavel)listBox3.SelectedItem).Item);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+                listBox3.Items.RemoveAt(listBox3.SelectedIndex);
+                if (current3 == listBox3.Items.Count)
+                    current3 = listBox3.Items.Count - 1;
+                if (current3 == -1)
+                {
+                    ClearFields();
+                    MessageBox.Show("There are no more contacts");
+                }
+
+            }
+            ClearFields();
         }
 
-        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
+        private void bttnOK_Click(object sender, EventArgs e)
         {
-            Form2 x = new Form2();
-            x.Show();
-            this.Hide();
+            todos.Hide();
+            inv.Show();
+            try
+            {
+                SaveContact(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            ShowButtons();
+            LockControls();
+            loadCustomersToolStripMenuItem_Click(sender, e);
+        }
+
+        private void bttnCancel_Click(object sender, EventArgs e)
+        {
+            todos.Hide();
+            inv.Show();
+            ClearFields();
+            LockControls();
+            ShowButtons();
+            loadCustomersToolStripMenuItem_Click(sender, e);
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -71,6 +71,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.load = new System.Windows.Forms.ToolStripMenuItem();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.todos = new System.Windows.Forms.Label();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -88,7 +90,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 26);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1139, 527);
+            this.panel1.Size = new System.Drawing.Size(1310, 731);
             this.panel1.TabIndex = 0;
             // 
             // splitContainer1
@@ -105,8 +107,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel3);
-            this.splitContainer1.Size = new System.Drawing.Size(1139, 527);
-            this.splitContainer1.SplitterDistance = 522;
+            this.splitContainer1.Size = new System.Drawing.Size(1310, 731);
+            this.splitContainer1.SplitterDistance = 600;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -117,7 +119,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(522, 527);
+            this.panel2.Size = new System.Drawing.Size(600, 731);
             this.panel2.TabIndex = 0;
             // 
             // listBox1
@@ -128,13 +130,15 @@
             this.listBox1.Location = new System.Drawing.Point(0, 0);
             this.listBox1.Margin = new System.Windows.Forms.Padding(4);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(522, 527);
+            this.listBox1.Size = new System.Drawing.Size(600, 731);
             this.listBox1.TabIndex = 1;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
+            this.panel3.Controls.Add(this.txtID);
+            this.panel3.Controls.Add(this.todos);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.txtHP2);
@@ -174,7 +178,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(612, 527);
+            this.panel3.Size = new System.Drawing.Size(705, 731);
             this.panel3.TabIndex = 0;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -182,7 +186,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label4.Location = new System.Drawing.Point(286, 104);
+            this.label4.Location = new System.Drawing.Point(364, 210);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 1, 4, 4);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(20, 20);
@@ -193,7 +197,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label3.Location = new System.Drawing.Point(125, 104);
+            this.label3.Location = new System.Drawing.Point(203, 210);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 1, 4, 4);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 20);
@@ -205,7 +209,7 @@
             // 
             this.txtHP2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtHP2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.txtHP2.Location = new System.Drawing.Point(325, 101);
+            this.txtHP2.Location = new System.Drawing.Point(403, 207);
             this.txtHP2.Margin = new System.Windows.Forms.Padding(4);
             this.txtHP2.Name = "txtHP2";
             this.txtHP2.ReadOnly = true;
@@ -216,7 +220,7 @@
             // 
             this.txtHP1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtHP1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.txtHP1.Location = new System.Drawing.Point(209, 101);
+            this.txtHP1.Location = new System.Drawing.Point(287, 207);
             this.txtHP1.Margin = new System.Windows.Forms.Padding(4);
             this.txtHP1.Name = "txtHP1";
             this.txtHP1.ReadOnly = true;
@@ -227,7 +231,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label2.Location = new System.Drawing.Point(27, 104);
+            this.label2.Location = new System.Drawing.Point(105, 210);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 1, 4, 4);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 20);
@@ -238,7 +242,7 @@
             // 
             this.buttonFiltrar.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.buttonFiltrar.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.buttonFiltrar.Location = new System.Drawing.Point(482, 74);
+            this.buttonFiltrar.Location = new System.Drawing.Point(560, 180);
             this.buttonFiltrar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonFiltrar.Name = "buttonFiltrar";
             this.buttonFiltrar.Size = new System.Drawing.Size(104, 34);
@@ -250,7 +254,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label1.Location = new System.Drawing.Point(4, 46);
+            this.label1.Location = new System.Drawing.Point(82, 152);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 1, 4, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 20);
@@ -262,7 +266,7 @@
             // 
             this.txtFiltrar.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtFiltrar.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.txtFiltrar.Location = new System.Drawing.Point(325, 46);
+            this.txtFiltrar.Location = new System.Drawing.Point(403, 152);
             this.txtFiltrar.Margin = new System.Windows.Forms.Padding(4);
             this.txtFiltrar.Name = "txtFiltrar";
             this.txtFiltrar.ReadOnly = true;
@@ -273,7 +277,7 @@
             // 
             this.DropBoss.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.DropBoss.FormattingEnabled = true;
-            this.DropBoss.Location = new System.Drawing.Point(144, 46);
+            this.DropBoss.Location = new System.Drawing.Point(222, 152);
             this.DropBoss.Name = "DropBoss";
             this.DropBoss.Size = new System.Drawing.Size(121, 24);
             this.DropBoss.TabIndex = 189;
@@ -282,7 +286,7 @@
             // 
             this.labelZona.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelZona.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.labelZona.Location = new System.Drawing.Point(349, 383);
+            this.labelZona.Location = new System.Drawing.Point(427, 489);
             this.labelZona.Margin = new System.Windows.Forms.Padding(4, 4, 4, 1);
             this.labelZona.Name = "labelZona";
             this.labelZona.Size = new System.Drawing.Size(109, 20);
@@ -293,7 +297,7 @@
             // 
             this.txtZona.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtZona.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.txtZona.Location = new System.Drawing.Point(352, 405);
+            this.txtZona.Location = new System.Drawing.Point(430, 511);
             this.txtZona.Margin = new System.Windows.Forms.Padding(4, 1, 4, 4);
             this.txtZona.Name = "txtZona";
             this.txtZona.ReadOnly = true;
@@ -304,10 +308,10 @@
             // 
             this.label_Coordenadas.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_Coordenadas.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label_Coordenadas.Location = new System.Drawing.Point(349, 316);
+            this.label_Coordenadas.Location = new System.Drawing.Point(427, 422);
             this.label_Coordenadas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 1);
             this.label_Coordenadas.Name = "label_Coordenadas";
-            this.label_Coordenadas.Size = new System.Drawing.Size(109, 20);
+            this.label_Coordenadas.Size = new System.Drawing.Size(128, 20);
             this.label_Coordenadas.TabIndex = 186;
             this.label_Coordenadas.Text = "Coordenadas";
             // 
@@ -315,7 +319,7 @@
             // 
             this.txtCoordenadas.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtCoordenadas.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.txtCoordenadas.Location = new System.Drawing.Point(352, 338);
+            this.txtCoordenadas.Location = new System.Drawing.Point(430, 444);
             this.txtCoordenadas.Margin = new System.Windows.Forms.Padding(4, 1, 4, 4);
             this.txtCoordenadas.Name = "txtCoordenadas";
             this.txtCoordenadas.ReadOnly = true;
@@ -326,7 +330,7 @@
             // 
             this.txtDialogo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtDialogo.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.txtDialogo.Location = new System.Drawing.Point(352, 279);
+            this.txtDialogo.Location = new System.Drawing.Point(430, 385);
             this.txtDialogo.Margin = new System.Windows.Forms.Padding(4, 1, 4, 4);
             this.txtDialogo.Name = "txtDialogo";
             this.txtDialogo.ReadOnly = true;
@@ -337,7 +341,7 @@
             // 
             this.txtTrilha.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtTrilha.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.txtTrilha.Location = new System.Drawing.Point(353, 223);
+            this.txtTrilha.Location = new System.Drawing.Point(431, 329);
             this.txtTrilha.Margin = new System.Windows.Forms.Padding(4);
             this.txtTrilha.Name = "txtTrilha";
             this.txtTrilha.ReadOnly = true;
@@ -348,7 +352,7 @@
             // 
             this.label_dialogo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_dialogo.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label_dialogo.Location = new System.Drawing.Point(349, 257);
+            this.label_dialogo.Location = new System.Drawing.Point(427, 363);
             this.label_dialogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 1);
             this.label_dialogo.Name = "label_dialogo";
             this.label_dialogo.Size = new System.Drawing.Size(128, 20);
@@ -359,7 +363,7 @@
             // 
             this.label_Trilha_Sonora.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_Trilha_Sonora.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label_Trilha_Sonora.Location = new System.Drawing.Point(350, 195);
+            this.label_Trilha_Sonora.Location = new System.Drawing.Point(428, 301);
             this.label_Trilha_Sonora.Margin = new System.Windows.Forms.Padding(4, 1, 4, 4);
             this.label_Trilha_Sonora.Name = "label_Trilha_Sonora";
             this.label_Trilha_Sonora.Size = new System.Drawing.Size(140, 20);
@@ -370,10 +374,10 @@
             // 
             this.label_Resistencia.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_Resistencia.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label_Resistencia.Location = new System.Drawing.Point(41, 310);
+            this.label_Resistencia.Location = new System.Drawing.Point(119, 416);
             this.label_Resistencia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 1);
             this.label_Resistencia.Name = "label_Resistencia";
-            this.label_Resistencia.Size = new System.Drawing.Size(96, 20);
+            this.label_Resistencia.Size = new System.Drawing.Size(118, 20);
             this.label_Resistencia.TabIndex = 178;
             this.label_Resistencia.Text = "Resistência";
             // 
@@ -381,7 +385,7 @@
             // 
             this.label_Fraqueza.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_Fraqueza.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label_Fraqueza.Location = new System.Drawing.Point(41, 433);
+            this.label_Fraqueza.Location = new System.Drawing.Point(119, 539);
             this.label_Fraqueza.Margin = new System.Windows.Forms.Padding(4, 4, 4, 1);
             this.label_Fraqueza.Name = "label_Fraqueza";
             this.label_Fraqueza.Size = new System.Drawing.Size(96, 20);
@@ -392,7 +396,7 @@
             // 
             this.Label_Drops.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Label_Drops.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label_Drops.Location = new System.Drawing.Point(41, 366);
+            this.Label_Drops.Location = new System.Drawing.Point(119, 472);
             this.Label_Drops.Margin = new System.Windows.Forms.Padding(4, 4, 4, 1);
             this.Label_Drops.Name = "Label_Drops";
             this.Label_Drops.Size = new System.Drawing.Size(96, 20);
@@ -403,7 +407,7 @@
             // 
             this.txtFraqueza.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtFraqueza.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.txtFraqueza.Location = new System.Drawing.Point(43, 455);
+            this.txtFraqueza.Location = new System.Drawing.Point(121, 561);
             this.txtFraqueza.Margin = new System.Windows.Forms.Padding(4, 1, 4, 4);
             this.txtFraqueza.Name = "txtFraqueza";
             this.txtFraqueza.ReadOnly = true;
@@ -414,7 +418,7 @@
             // 
             this.txtDrops.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtDrops.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.txtDrops.Location = new System.Drawing.Point(43, 399);
+            this.txtDrops.Location = new System.Drawing.Point(121, 505);
             this.txtDrops.Margin = new System.Windows.Forms.Padding(4, 1, 4, 4);
             this.txtDrops.Name = "txtDrops";
             this.txtDrops.ReadOnly = true;
@@ -425,7 +429,7 @@
             // 
             this.txtResistencia.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtResistencia.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.txtResistencia.Location = new System.Drawing.Point(44, 332);
+            this.txtResistencia.Location = new System.Drawing.Point(122, 438);
             this.txtResistencia.Margin = new System.Windows.Forms.Padding(4, 1, 4, 4);
             this.txtResistencia.Name = "txtResistencia";
             this.txtResistencia.ReadOnly = true;
@@ -436,7 +440,7 @@
             // 
             this.txtImunidade.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtImunidade.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.txtImunidade.Location = new System.Drawing.Point(43, 279);
+            this.txtImunidade.Location = new System.Drawing.Point(121, 385);
             this.txtImunidade.Margin = new System.Windows.Forms.Padding(4, 1, 4, 4);
             this.txtImunidade.Name = "txtImunidade";
             this.txtImunidade.ReadOnly = true;
@@ -447,7 +451,7 @@
             // 
             this.txtHP.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtHP.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.txtHP.Location = new System.Drawing.Point(43, 230);
+            this.txtHP.Location = new System.Drawing.Point(121, 336);
             this.txtHP.Margin = new System.Windows.Forms.Padding(4, 1, 4, 4);
             this.txtHP.Name = "txtHP";
             this.txtHP.ReadOnly = true;
@@ -458,7 +462,7 @@
             // 
             this.txtNome.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtNome.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.txtNome.Location = new System.Drawing.Point(44, 174);
+            this.txtNome.Location = new System.Drawing.Point(122, 280);
             this.txtNome.Margin = new System.Windows.Forms.Padding(4);
             this.txtNome.Name = "txtNome";
             this.txtNome.ReadOnly = true;
@@ -469,10 +473,10 @@
             // 
             this.Label_Imunidade.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Label_Imunidade.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label_Imunidade.Location = new System.Drawing.Point(40, 257);
+            this.Label_Imunidade.Location = new System.Drawing.Point(118, 363);
             this.Label_Imunidade.Margin = new System.Windows.Forms.Padding(4, 4, 4, 1);
             this.Label_Imunidade.Name = "Label_Imunidade";
-            this.Label_Imunidade.Size = new System.Drawing.Size(96, 20);
+            this.Label_Imunidade.Size = new System.Drawing.Size(129, 20);
             this.Label_Imunidade.TabIndex = 171;
             this.Label_Imunidade.Text = "Imunidade";
             // 
@@ -480,7 +484,7 @@
             // 
             this.Label_HP.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Label_HP.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label_HP.Location = new System.Drawing.Point(40, 208);
+            this.Label_HP.Location = new System.Drawing.Point(118, 314);
             this.Label_HP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 1);
             this.Label_HP.Name = "Label_HP";
             this.Label_HP.Size = new System.Drawing.Size(173, 20);
@@ -491,7 +495,7 @@
             // 
             this.Label_Nome.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Label_Nome.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.Label_Nome.Location = new System.Drawing.Point(41, 146);
+            this.Label_Nome.Location = new System.Drawing.Point(119, 252);
             this.Label_Nome.Margin = new System.Windows.Forms.Padding(4, 1, 4, 4);
             this.Label_Nome.Name = "Label_Nome";
             this.Label_Nome.Size = new System.Drawing.Size(96, 20);
@@ -502,7 +506,7 @@
             // 
             this.bttnDelete.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.bttnDelete.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.bttnDelete.Location = new System.Drawing.Point(434, 515);
+            this.bttnDelete.Location = new System.Drawing.Point(512, 621);
             this.bttnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.bttnDelete.Name = "bttnDelete";
             this.bttnDelete.Size = new System.Drawing.Size(128, 39);
@@ -514,7 +518,7 @@
             // 
             this.bttnAdd.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.bttnAdd.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.bttnAdd.Location = new System.Drawing.Point(289, 515);
+            this.bttnAdd.Location = new System.Drawing.Point(367, 621);
             this.bttnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.bttnAdd.Name = "bttnAdd";
             this.bttnAdd.Size = new System.Drawing.Size(128, 39);
@@ -526,7 +530,7 @@
             // 
             this.bttnCancel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.bttnCancel.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.bttnCancel.Location = new System.Drawing.Point(434, 455);
+            this.bttnCancel.Location = new System.Drawing.Point(512, 561);
             this.bttnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.bttnCancel.Name = "bttnCancel";
             this.bttnCancel.Size = new System.Drawing.Size(128, 39);
@@ -539,7 +543,7 @@
             // 
             this.bttnOK.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.bttnOK.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.bttnOK.Location = new System.Drawing.Point(289, 455);
+            this.bttnOK.Location = new System.Drawing.Point(367, 561);
             this.bttnOK.Margin = new System.Windows.Forms.Padding(4);
             this.bttnOK.Name = "bttnOK";
             this.bttnOK.Size = new System.Drawing.Size(128, 39);
@@ -552,7 +556,7 @@
             // 
             this.bttnEdit.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.bttnEdit.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.bttnEdit.Location = new System.Drawing.Point(434, 455);
+            this.bttnEdit.Location = new System.Drawing.Point(512, 561);
             this.bttnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.bttnEdit.Name = "bttnEdit";
             this.bttnEdit.Size = new System.Drawing.Size(128, 39);
@@ -577,36 +581,59 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1139, 26);
+            this.menuStrip1.Size = new System.Drawing.Size(1310, 26);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // load
             // 
             this.load.Name = "load";
-            this.load.Size = new System.Drawing.Size(53, 26);
+            this.load.Size = new System.Drawing.Size(53, 22);
             this.load.Text = "Load";
             this.load.Click += new System.EventHandler(this.load_Click);
             // 
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(58, 26);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(58, 22);
             this.menuToolStripMenuItem.Text = "Menu";
             this.menuToolStripMenuItem.Click += new System.EventHandler(this.menuToolStripMenuItem_Click);
+            // 
+            // todos
+            // 
+            this.todos.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.todos.Font = new System.Drawing.Font("Verdana", 40F);
+            this.todos.Location = new System.Drawing.Point(242, -2);
+            this.todos.Margin = new System.Windows.Forms.Padding(4, 1, 4, 4);
+            this.todos.Name = "todos";
+            this.todos.Size = new System.Drawing.Size(340, 100);
+            this.todos.TabIndex = 204;
+            this.todos.Text = "Bosses";
+            // 
+            // txtID
+            // 
+            this.txtID.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtID.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.txtID.Location = new System.Drawing.Point(35, 32);
+            this.txtID.Margin = new System.Windows.Forms.Padding(4);
+            this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
+            this.txtID.Size = new System.Drawing.Size(110, 26);
+            this.txtID.TabIndex = 205;
+            this.txtID.Visible = false;
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(75)))), ((int)(((byte)(109)))));
-            this.ClientSize = new System.Drawing.Size(1139, 553);
+            this.ClientSize = new System.Drawing.Size(1310, 757);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form3";
-            this.Text = "Bosses";
+            this.Text = "Saves";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -675,6 +702,8 @@
         internal System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStripMenuItem load;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
+        internal System.Windows.Forms.Label todos;
+        internal System.Windows.Forms.TextBox txtID;
     }
 }
 
