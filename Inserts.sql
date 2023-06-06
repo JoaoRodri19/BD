@@ -89,10 +89,10 @@ VALUES (null,'High Wall of Lothric','3,3,3')
 INSERT INTO ds3.Saves(Horas,ID,Ultima_localizacao,Jogador)
 VALUES (DATEADD(HOUR, 83, CAST('00:00:00' AS TIME)),1,'1,1,1',41)
 GO
-INSERT INTO ds3.Saves(Horas,ID)
+INSERT INTO ds3.Saves(Horas,ID,Ultima_localizacao,Jogador)
 VALUES (DATEADD(HOUR, 43, CAST('00:00:00' AS TIME)),2,'2,2,2',42)
 GO
-INSERT INTO ds3.Saves(Horas,ID)
+INSERT INTO ds3.Saves(Horas,ID,Ultima_localizacao,Jogador)
 VALUES (DATEADD(HOUR, 17, CAST('00:00:00' AS TIME)),3,'3,3,3',43)
 GO
 --Atributos

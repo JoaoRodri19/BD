@@ -216,12 +216,87 @@ BEGIN
     DELETE FROM ds3.Saves WHERE ID = @ID;
     DELETE FROM ds3.Jogador_Atributos WHERE Jogador = @PER_ID;
     DELETE FROM ds3.Jogador WHERE Personagem = @PER_ID;
-    DELETE FROM ds3.Item_Personagem WHERE Personagem = @PER_ID;
-    DELETE FROM ds3.Personagem WHERE Personagem = @PER_ID;
-    DELETE FROM ds3.Localizacao WHERE Coordenadas = @PER_LOC;
+    DELETE FROM ds3.Item_Personagem WHERE Item_Personagem.Personagem = @PER_ID;
+    DELETE FROM ds3.Personagem WHERE ID = @PER_ID;
 END;
+-----------------------------------------------------------------------------------------------------------------------
+CREATE PROCEDURE GetArmaduraByName @Nome varchar(50)
+AS
+BEGIN
+	DECLARE @ID int;
+	SET @ID = (SELECT ID FROM Ds3.Personagem WHERE Nome = @Nome)
+	SELECT * FROM Ds3.Armadura 
+	JOIN Ds3.Item_Equipavel on Ds3.Armadura.Item_Equipavel = Item_Equipavel.Item 
+	JOIN Ds3.Item on Item_Equipavel.Item = Item.ID
+	JOIN Ds3.Item_Personagem on Item_Personagem.Personagem = @ID
+	WHERE ID = Item_Personagem.Item
 
+END;
 -------------------------------------------------------------------------------------------------------------------------
+GO
+CREATE PROCEDURE GetArmaByName @Nome varchar(50)
+AS
+BEGIN
+	DECLARE @ID int;
+	SET @ID = (SELECT ID FROM Ds3.Personagem WHERE Nome = @Nome)
+	SELECT * FROM Ds3.Arma 
+	JOIN Ds3.Item_Equipavel on Ds3.Arma.Item_Equipavel = Item_Equipavel.Item 
+	JOIN Ds3.Item on Item_Equipavel.Item = Item.ID
+	JOIN Ds3.Item_Personagem on Item_Personagem.Personagem = @ID
+	WHERE ID = Item_Personagem.Item
+
+END;
+------------------------------------------------------------------------------------------------------------------------------
+GO
+CREATE PROCEDURE GetItemNaoEquipavelByName @Nome varchar(50)
+AS
+BEGIN
+	DECLARE @ID int;
+	SET @ID = (SELECT ID FROM Ds3.Personagem WHERE Nome = @Nome)
+	SELECT * FROM Ds3.Item_Nao_Equipavel 
+	JOIN Ds3.Item on Item_Nao_Equipavel.Item = Item.ID
+	JOIN Ds3.Item_Personagem on Item_Personagem.Personagem = @ID
+	WHERE ID = Item_Personagem.Item
+
+END;
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE PROCEDURE GetArmadura
+AS
+BEGIN
+	
+	SELECT * FROM Ds3.Armadura 
+	JOIN Ds3.Item_Equipavel on Ds3.Armadura.Item_Equipavel = Item_Equipavel.Item 
+	JOIN Ds3.Item on Item_Equipavel.Item = Item.ID
+	
+
+END;
+-------------------------------------------------------------------------------------------------------------------------
+GO
+CREATE PROCEDURE GetArma
+AS
+BEGIN
+	
+	SELECT * FROM Ds3.Arma 
+	JOIN Ds3.Item_Equipavel on Ds3.Arma.Item_Equipavel = Item_Equipavel.Item 
+	JOIN Ds3.Item on Item_Equipavel.Item = Item.ID
+	
+
+END;
+------------------------------------------------------------------------------------------------------------------------------
+GO
+CREATE PROCEDURE GetItemNaoEquipavel 
+AS
+BEGIN
+	
+	SELECT * FROM Ds3.Item_Nao_Equipavel 
+	JOIN Ds3.Item on Item_Nao_Equipavel.Item = Item.ID
+	
+	
+
+END;
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 -- drop sp
 DROP PROCEDURE IF EXISTS GetBossInformation;
 DROP PROCEDURE IF EXISTS GetAllBossInformation;
@@ -232,7 +307,10 @@ DROP PROCEDURE IF EXISTS GetAllSavesInformation
 DROP PROCEDURE IF EXISTS InsertBoss;
 DROP PROCEDURE IF EXISTS GetBossByHp;
 DROP PROCEDURE IF EXISTS GetBossByName;
-
+DROP PROCEDURE DeleteSave
+DROP PROCEDURE GetArmaduraByName
+DROP PROCEDURE GetArmaByName
+DROP PROCEDURE GetItemNaoEquipavelByName
 
 -- exec
 exec GetBossByName @name = 'ar'
@@ -240,6 +318,7 @@ exec GetBossByName @name = 'ar'
 
 
 -- exec
+exec GetItemNaoEquipavelByName 'Aim_A_Cat'
 exec GetAllSavesInformation
 exec GetBossByName @name = 'ar'
 exec GetBossInformation
@@ -254,7 +333,10 @@ exec InsertSave @Ultima_localizacao ='1,1,1',@Horas =2 ,@Item_Discovery = 0,@Sta
 @Classe= 'TESTE', @Equip_Load = 0, @Focus_Points = 0, @Nivel = 0, @Nome='CABOCA',@Zona='TESTE',
 @Pontos_De_Vida = 0
 
-
+exec DeleteSave 6
+SELECT * from Ds3.arma
+exec GetAByName 'Aim_A_Cat'
+select * from Ds3.Item_Personagem
 
 SELECT
     *
